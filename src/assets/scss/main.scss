@@ -1,0 +1,38 @@
+/**** Vnedors ****/
+@import "~bootstrap/scss/bootstrap";
+
+/**** Abstracts ****/
+@import 'abstracts/_mixins';
+@import 'abstracts/_animations';
+
+/**** Base ****/
+@import 'base/_colors';
+@import 'base/_typography';
+@import 'base/_reset';
+@import 'base/_base';
+
+/**** Components ****/
+@import 'components/_scrollbar.scss';
+@import 'components/_shadows.scss';
+@import 'components/_icon.scss';
+@import 'components/_smilles.scss';
+@import 'components/_hr.scss';
+@import 'components/_offcanvas.scss';
+@import 'components/_button.scss';
+@import 'components/_ripple.scss';
+@import 'components/_dropdown.scss';
+@import 'components/_notification.scss';
+@import 'components/_gallery.scss';
+@import 'components/_form.scss';
+@import 'components/_tooltip.scss';
+
+/**** Layout ****/
+@import './layout/_nav'; 
+@import './layout/_mainmenu'; 
+@import './layout/_banner'; 
+@import './layout/_search'; 
+@import './layout/_galleryBar'; 
+@import './layout/_footer'; 
+
+/**** Pages ****/
+@import './pages/_login'; 

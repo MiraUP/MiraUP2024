@@ -1,0 +1,276 @@
+//Menu Burger
+.menu-burger {
+  position: relative;
+  padding: px(10) px(15);
+
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+    background: var(--bs-white);
+    height: px(3);
+    width: px(20);
+    border-radius: px(50);
+    margin: px(5) 0;
+    @include anima-basic;
+  }
+
+  &.active,
+  &:hover {
+
+    &::before {
+      @include prefix(transform, translateX(0px), moz webkit ms o);
+      width: px(25);
+    }
+
+    &::after {
+      @include prefix(transform, translateX(10px), moz webkit ms o);
+      width: px(25);
+    }
+  }
+}
+
+.button {
+
+  &-heart {
+    position: relative;
+    padding: 0;
+
+    input[type=checkbox] {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+
+      &:checked+label {
+        color: var(--bs-red);
+
+        &::before {
+          content: '\e9a6';
+        }
+      }
+    }
+
+    label {
+      display: block;
+      @include fontIcon;
+      color: var(--bs-white);
+      font-size: px(32);
+      cursor: pointer;
+
+      &::before {
+        content: '\e9a5';
+      }
+
+      &:hover {
+        @include anima-heart;
+      }
+    }
+  }
+
+  &-close {
+    @include anima-basic;
+    opacity: .8;
+
+    &:hover {
+      opacity: 1;
+      @include anima-rotate-zoom;
+    }
+  }
+}
+
+.btn {
+  @include fontTitle;
+
+  &:active {
+    border-color: transparent !important;
+  }
+
+  .icon {
+    margin:0 px(8);
+  }
+
+  &-group {
+
+    &-transparent {
+
+      label {
+        border: none;
+      }
+
+      .btn:hover {
+        background: var(--bs-blue) !important;
+      }
+    }
+  }
+
+  &.link {
+    padding: 0;
+  }
+}
+
+.btn-transparent,
+.btn-transparent-group {
+  --bs-btn-font-weight: 400;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  --bs-btn-border-radius: 0;
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-focus-shadow-rgb: none;
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-active-bg: none;
+  --bs-btn-active-border-color: none;
+}
+
+.btn-group {
+
+  .btn-transparent-group {
+    position: relative;
+    color: rgba(var(--bs-white), .15);
+    border: none;
+    align-self: center;
+    @include anima-basic;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: px(2);
+      height: px(40);
+      border-radius: 5px;
+      top: calc(50% - 20px);
+      right: 0;
+      background-color: rgba($white, .15);
+    }
+
+    &:last-child {
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &>.btn-check:checked {
+
+    &+.btn-transparent-group {
+      border: none;
+      color: var(--bs-white);
+    }
+  }
+}
+
+.dropdown {
+
+  &-toggle {
+
+    &::after {
+      @include fontIcon;
+      content: '\e906';
+      color: var(--bs-white);
+      font-size: px(24);
+      border: none;
+      vertical-align: middle;
+    }
+
+    &.no-arrow::after {
+      display: none;
+    }
+  }
+
+  &-menu-dark {
+    border: none;
+    background: lighten($black, 5%);
+
+    .title {
+      padding: px(10) px(15);
+      text-align: center;
+    }
+
+    a {
+      padding: px(15);
+      cursor: pointer;
+      @include anima-basic;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: px(20);
+      height: px(20);
+      top: px(-10);
+      left: calc(100% - px(45));
+      background: lighten($black, 5%);
+      @include prefix(transform, rotate(45deg), moz webkit ms o);
+    }
+
+    &[data-popper-placement="top-end"] {
+
+      &::before {
+        bottom: px(-10);
+        top: auto;
+      }
+    }
+  }
+}
+
+.btn-post {
+
+  &-next,
+  &-prev {
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    top: px(700);
+    margin: px(20) 0;
+    border: px(2) solid rgba(var(--bs-white), .3);
+    padding: px(5);
+    background: rgba(var(--bs-white), 0);
+    overflow: hidden;
+    width: px(44);
+    max-width: px(344);
+
+    .icon {
+      color: rgba(var(--bs-white), .3);
+      font-size: px(32);
+    }
+
+    span {
+      display: inline-block;
+      padding: px(5) px(10) px(5) px(5);
+      font-weight: 600;
+      color: var(--bs-white);
+    }
+
+    &:hover {
+      border-color: rgba(var(--bs-blue), 1);
+      background: rgba(var(--bs-blue), 1);
+      width: max-content;
+
+      i {
+        color: rgba(var(--bs-white), 1);
+      }
+    }
+
+    &.fixed {
+      position: fixed;
+      top: 50%;
+    }
+  }
+
+  &-prev {
+    left: 0;
+    border-left: none;
+  }
+
+  &-next {
+    right: 0;
+    border-right: none;
+    justify-content: flex-end;
+  }
+}

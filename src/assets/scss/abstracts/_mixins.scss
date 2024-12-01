@@ -1,0 +1,26 @@
+//Include class "body.nav-fixed"
+@mixin nav-fixed {
+  body.nav-fixed & {
+    @content;
+  }
+}
+
+//Add Prefix
+@mixin prefix($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+//Convert px to rem
+@function px($value) {
+  $remValue: ($value / 16) + rem;	
+  @return $remValue;
+}
+
+//Paths
+$iconPath:    'src/assets/img/icon/';
+$graphicPath: 'src/assets/img/graphic/';
+$smillePath:  'src/assets/img/smilles/';

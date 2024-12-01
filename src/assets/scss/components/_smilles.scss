@@ -1,0 +1,52 @@
+/*** 
+  1.6 Smille
+*/
+
+
+//Assets Smille
+//Emotions: Friendly, Grimace, Happy, Indifferent, Sad, Scared or Wink
+@mixin Smille($Emoticon) {
+  background-image: url($smillePath + 'Smille-' + $Emoticon + '.svg');
+
+  @if       ($Emoticon == Friendly)    { background-size: 75%; }
+  @else if  ($Emoticon == Grimace)     { background-size: 65%; }
+  @else if  ($Emoticon == Happy)       { background-size: 75%; }
+  @else if  ($Emoticon == Indifferent) { background-size: 75%; }
+  @else if  ($Emoticon == Sad)         { background-size: 75%; }
+  @else if  ($Emoticon == Scared)      { background-size: 55%; }
+  @else if  ($Emoticon == Wink)        { background-size: 75%; }
+}
+
+.smille {
+  content:'';
+  display: inline-block;
+  position: relative;
+  width: px(50);
+  height: px(50);
+  border: solid var(--bs-white) px(3);
+  background-position: center center;
+  background-repeat: no-repeat;
+  @include anima-basic;
+
+  &-Friendly    { @include Smille(Friendly) }
+  &-Grimace     { @include Smille(Grimace) }
+  &-Happy       { @include Smille(Happy) }
+  &-Indifferent { @include Smille(Indifferent) }
+  &-Sad         { @include Smille(Sad) }
+  &-Scared      { @include Smille(Scared) }
+  &-Wink        { @include Smille(Wink) }
+
+  &.EmoHover {
+    &:hover {
+      cursor: pointer; 
+      border-radius: px(1000);
+    }
+    &-Friendly:hover    { @include Smille(Friendly) }
+    &-Grimace:hover     { @include Smille(Grimace) }
+    &-Happy:hover       { @include Smille(Happy) }
+    &-Indifferent:hover { @include Smille(Indifferent) }
+    &-Sad:hover         { @include Smille(Sad) }
+    &-Scared:hover      { @include Smille(Scared) }
+    &-Wink:hover        { @include Smille(Wink) }
+  }
+}

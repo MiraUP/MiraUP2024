@@ -1,0 +1,35 @@
+/*** 
+  2.1 Color Pallets */
+
+//Primary colors
+$blue     : #3742f9;
+$cyan     : #48DAFA;
+$violet     : #6610f2;
+$green      : #1ABB9B;
+$black    : #354050;
+$white    : #DFE0E4;
+$orange     : #F4A003;
+$red        : #ba3a31;
+
+
+/*** 
+  2.2 Variables Property Colors 
+*/
+@each $prop,
+$color in $colors {
+  .fill-#{$prop} {
+    fill: $color;
+  }
+
+  .stroke-#{$prop} {
+    stroke: $color;
+  }
+
+  .background-#{$prop} {
+    background-color: $color;
+  }
+
+  .border-#{$prop} {
+    border-color: $color;
+  }
+}

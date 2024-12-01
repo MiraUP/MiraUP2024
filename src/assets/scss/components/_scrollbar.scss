@@ -1,0 +1,27 @@
+::-webkit-scrollbar {
+  width: px(10);
+  height: px(10);
+  background: darken($black, 5%);
+  border-radius: px(3);
+
+  &-track {
+    background: none;
+  }
+
+  &-thumb {
+    background: var(--bs-blue);
+    border-radius: px(3);
+
+    &:hover {
+      background: var(--bs-cyan);
+    }
+  }
+}
+
+textarea::-webkit-scrollbar {
+  background: darken(rgba($black, .3), 5%);
+
+  &-thumb {
+    background: lighten($blue, 5%);
+  }
+}

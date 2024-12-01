@@ -1,0 +1,151 @@
+#mainMenu {
+    background: var(--bs-black);
+
+    &::before {
+      content: '';
+      position: fixed;
+      display: block;
+      z-index: 0;
+      height: px(450);
+      width: 100%;
+      min-width: px(1440);
+      background: url('#{$graphicPath}gradient.png') no-repeat center top;
+      background-size: 100% 100%;
+      bottom: 0;
+      @include prefix(transform, rotate(180deg), moz webkit ms o);
+
+      @include media-breakpoint-down(xxl) {
+        left: calc(50% - px(720));
+      }
+    }
+
+  .modal-content {
+    background: none;
+    position: relative;
+    z-index: 1;
+
+    h2,
+    h3,
+    button,
+    li,
+    p,
+    a {
+      color: var(--bs-white);
+    }
+
+    .modal-title {
+      margin: px(30) 0;
+      font-size: px(43);
+    }
+
+    .col-btn-close {
+      display: flex;
+
+      .icon-close {
+        font-size: px(32);
+      }
+    }
+
+    .navegation {
+      margin-bottom: px(60);
+
+      h3 {
+        margin: px(60) 0 px(20) 0;
+      }
+
+      .col-lg-4 {
+
+        &:first-child {
+
+          ul::before {
+            display: none;
+          }
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: px(-12);
+          display: block;
+          width: px(2);
+          height: px(400);
+          background: var(--bs-white);
+          opacity: .15;
+          @include prefix(transform, translateY(calc(50% - px(200))), moz webkit ms o);
+        }
+
+        @include media-breakpoint-down(lg) {
+          padding: 0 0 px(50) 0;
+
+          &::before {
+            right: inherit;
+            transform: none;
+            width: 100%;
+            height: px(2);
+            bottom: 0;
+          }
+        }
+
+        li {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          a {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            padding: px(10) 0;
+            opacity: .6;
+            @include anima-basic;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      #accordionMenuMobile {
+        margin-top: px(40);
+
+        .accordion-item {
+          background: none;
+          border: none;
+
+          .accordion-header {
+            margin: 0;
+
+            button {
+              background: none;
+              box-shadow: 0 px(2) 0 0 rgba(var(--bs-white), .15);
+              border-radius: 0;
+              padding: px(30) px(20);
+              font-size: px(21);
+
+              &::after {
+                font-family: 'Miraup Icon';
+                content: '\e906';
+                background: none;
+                font-size: px(32);
+                height: auto;
+                width: auto;
+              }
+            }
+          }
+
+          .accordion-body {
+            padding: px(50) 0 0 0;
+          }
+        }
+      }
+    }
+  }
+}

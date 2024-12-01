@@ -1,0 +1,236 @@
+.search-main {
+  position: relative;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  &-box {
+    position: relative;
+    width: calc(100% - px(200));
+    margin-left: px(100);
+    padding: 0 34px;
+    @include prefix(backdrop-filter, blur(5px), moz webkit ms o);
+    @include shadow-basic(64px, bottom);
+
+    @include media-breakpoint-down(xl) {
+      width: calc(100% - px(50));
+      margin-left: px(25);
+    }
+
+    @include media-breakpoint-down(lg) {
+
+      .mockup,
+      .presentation {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: px(-40) !important;
+
+      .socialMedia,
+      .uiKit {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 100% !important;
+      margin: 0 0 px(-40) 0 !important;
+
+      .col-auto,
+      .illustration,
+      .code {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: var(--bs-black);
+      opacity: .65;
+    }
+
+    .search-main-filter {
+      margin: 0;
+      position: relative;
+      width: 100%;
+      opacity: 1;
+      @include anima-basic;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: var(--bs-white);
+        width: 100%;
+        height: px(1);
+        opacity: .3;
+        bottom: 0;
+      }
+
+      &.btns-disabled {
+        opacity: .1;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .btn-check {
+
+        &:checked {
+
+          &+.btn {
+            color: var(--bs-white);
+            opacity: 1;
+            border: none;
+
+            &::after {
+              left: 0;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      button.btn {
+        padding: 0px;
+
+        .btn {
+          position: relative;
+          padding: 34px 20px;
+          color: var(--bs-white);
+          opacity: .5;
+          width: 100%;
+          white-space: nowrap;
+          margin: 0 !important;
+          border: 0 !important;
+          @include anima-basic;
+
+          span {
+            display: none;
+
+            @include media-breakpoint-down(xs) {
+              display: inline-block;
+            }
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 0;
+            height: px(1);
+            background: var(--bs-white);
+            left: 50%;
+            bottom: 0;
+            @include anima-basic;
+          }
+
+          &:hover {
+            opacity: 1;
+            border: none;
+
+            &::after {
+              left: 0;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    form {
+
+      .form-floating {
+
+        .form-control {
+          background: none;
+          border: none;
+          color: var(--bs-white);
+          font-size: px(24);
+          padding: px(40) px(12) !important;
+          height: auto;
+
+          &:focus {
+            @include prefix(box-shadow, none, moz webkit ms o);
+          }
+
+          &:focus,
+          &:not(:placeholder-shown) {
+
+            &~label {
+              @include prefix(transform, scale(.45) translateY(0rem) translateX(1rem), moz webkit ms o);
+            }
+          }
+        }
+
+        >label {
+          @include fontTitle;
+          font-size: px(32);
+          color: var(--bs-white);
+          padding: px(29) px(12);
+        }
+      }
+
+      .col-auto {
+        align-self: center;
+
+        .icon-search {
+          color: var(--bs-white);
+          font-size: px(48);
+        }
+      }
+    }
+  }
+
+  label[for=search-main] {
+    color:var(--bs-white)1 !important;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.scrollMobile-h {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  overflow-x: auto;
+
+  .btn {
+    width: inherit;
+    border: none;
+  }
+}
+
+.button-search {
+  position: relative;
+  
+  .fade-in {
+    opacity: 1;
+    transform: scale(1);
+    @include anima-basic;
+  }
+    
+  .fade-out {
+    opacity: 0;
+    transform: scale(0);
+    @include anima-basic;
+  }
+}

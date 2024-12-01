@@ -1,0 +1,8 @@
+.tooltip { 
+
+  &-inner {
+    background-color: lighten($black, 5%) !important;
+    font-size: px(12);
+  }
+  &-arrow::before { border-bottom-color: lighten($black, 5%) !important;}
+}

@@ -1,0 +1,14 @@
+.footer {
+  position: relative;
+  z-index: 1;
+
+  p,
+  a {
+    font-size: px(13);
+  }
+
+  .icon {
+    font-size: px(21);
+    margin-right: px(8);
+  }
+}

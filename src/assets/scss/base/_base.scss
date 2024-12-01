@@ -1,0 +1,17 @@
+html {
+  background-color: var(--bs-black);
+
+  body {
+    background: none !important;
+    overflow-x: hidden;
+
+    &.nav-fixed {
+      padding-top: px(87);
+    }
+  }
+}
+
+::selection {
+  color: var(--bs-white);
+  background-color: rgba(#3D44D5, .8);
+}

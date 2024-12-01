@@ -1,0 +1,64 @@
+.banner {
+
+  &-infinity {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    height: px(550);
+    background: var(--bs-black);
+
+    @include media-breakpoint-down(xl) {
+      height: px(450);
+    }
+
+    @include media-breakpoint-down(md) {
+      height: px(350);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(135deg, rgba($blue, 0) 40%, $blue 100%);
+    }
+
+    .announcement {
+      position: absolute;
+      color: var(--bs-white);
+      z-index: 1;
+      width: 100%;
+      font-size: px(64);
+      top: 50%;
+      @include prefix(transform, translateY(-70%), moz webkit ms o);
+
+      span {
+        display: block;
+        font-size: px(18);
+        margin-top: px(20);
+        letter-spacing: px(1.5);
+      }
+
+      @include media-breakpoint-down(md) {
+
+        span {
+          display: none;
+        }
+      }
+
+      @include media-breakpoint-down(sm) {
+        font-size: px(40);
+      }
+    }
+
+    .marquee {
+      height: px(1500);
+      width: px(1500);
+      opacity: .3;
+      @include prefix(transform, rotate(-30deg) translateX(180px) translateY(-650px), moz webkit ms o);
+    }
+  }
+}
