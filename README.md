@@ -1,8 +1,18 @@
-# React + Vite
+# MiraUp | Sistema de cadastro e busca de Ativos digitias
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Desenvolvido com o frontend em ReactJS com o objetivo de estudo da linguagem.
+Backend feito com API Rest do Wordpress.
 
-Currently, two official plugins are available:
+##Páginas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Login: Acesso ao login e a criação de contas
+- Single page: Listagem de ativos cadastrados com o mecanismo de pesquisa
+- Inner page item: Detalhamento de um item de qualquer categoria, excerto ícones
+- Inner page icon: Detalhamento e listagem com suas demais variações de icones
+- Favorite page: Listagem de itens favoritos
+- Profile page: Configurações e dados de uso do usuário
+- Item registration page: Página de cadastramento de itens
+
+##Componentes Reactjs
+
+- Icon
