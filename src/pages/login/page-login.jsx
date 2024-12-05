@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../layout/footer';
-import PageLoginBrand from '../layout/pLogin-brand';
-import PageLoginForm from '../layout/pLogin-form';
+import Footer from '../../layout/footer';
+import PageLoginBrand from './pLogin-brand';
+import PageLoginForm from './pLogin-form';
 
 const pageLogin = () => {
   return (

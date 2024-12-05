@@ -12,6 +12,7 @@ const Input = ({
   className,
   autoComplete,
   icon,
+  errorMessage,
   style,
 }) => {
   placeholder === undefined
@@ -46,6 +47,56 @@ const Input = ({
     }
   }
 
+  function errorValidateMessage() {
+    if (
+      error &&
+      error === 'Preencha este campo.' &&
+      errorMessage != undefined
+    ) {
+      return (
+        <span className="error-message">
+          <Icons IconName="info" />
+          {errorMessage}
+        </span>
+      );
+    } else if (
+      error &&
+      error != 'Preencha este campo.' &&
+      errorMessage === undefined
+    ) {
+      return (
+        <span className="error-message">
+          <Icons IconName="info" />
+          {error}
+        </span>
+      );
+    } else if (
+      error &&
+      error === 'Preencha este campo.' &&
+      errorMessage === undefined
+    ) {
+      return (
+        <span className="error-message">
+          <Icons IconName="info" />
+          {error}
+        </span>
+      );
+    } else if (
+      error &&
+      error != 'Preencha este campo.' &&
+      errorMessage != undefined
+    ) {
+      return (
+        <span className="error-message">
+          <Icons IconName="info" />
+          {error}
+        </span>
+      );
+    } else {
+      return '';
+    }
+  }
+
   return (
     <>
       <div
@@ -73,9 +124,9 @@ const Input = ({
           />
           <label htmlFor={id}>{' ' + placeholder}</label>
           {actionPassword()}
+          {errorValidateMessage()}
         </span>
       </div>
-      {error && <p className="error-mesage">{error}</p>}
     </>
   );
 };

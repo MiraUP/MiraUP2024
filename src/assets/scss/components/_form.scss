@@ -344,3 +344,37 @@
     }
   }
 }
+
+.error-message {
+  position: absolute;
+  display: flex;
+  justify-items: center;
+  font-size: px(13);
+  padding: px(15) px(15);
+  background: var(--bs-black);
+  z-index: 100;
+  left: px(25);
+  max-width: calc(100% - px(100));
+  
+
+  &::before {
+    content:'';
+    display: block;
+    position: absolute;
+    background-color: var(--bs-black);
+    width: px(26);
+    height: px(26);
+    left: 9px;
+    top: px(-5);
+    @include prefix(transform, rotate(45deg), moz webkit ms o);
+    z-index: -1;
+  }
+
+  .icon {
+    margin-right: px(10);
+    padding-right: px(10);
+    display: inline-block;
+    position: relative;
+    border-right: 2px solid rgba($white, .3);
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/button';
+import Button from '../../components/button';
 import PageLoginLogin from './pLogin-login';
 import PageLoginCreate from './pLogin-create';
 
@@ -57,7 +57,6 @@ const PageLoginForm = () => {
           LoginCreate={loginCreate}
           SetLoginCreate={setLoginCreate}
         />
-        {/* */}
       </div>
     </section>
   );

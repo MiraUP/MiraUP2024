@@ -107,6 +107,13 @@
   &.link {
     padding: 0;
   }
+
+  &-submit {
+
+    &.btn-success {
+      background-color: var(--bs-green) !important;
+    }
+  }
 }
 
 .btn-transparent,

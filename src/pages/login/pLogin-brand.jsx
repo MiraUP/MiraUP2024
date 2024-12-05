@@ -1,9 +1,9 @@
 import React from 'react';
 import { MouseParallax } from 'react-just-parallax';
-import Brand from '../components/brand';
-import Icon from '../components/icon';
-import Graphic02 from '../assets/img/graphic/graphic-02.png';
-import Graphic03 from '../assets/img/graphic/graphic-03.png';
+import Brand from '../../components/brand';
+import Icon from '../../components/icon';
+import Graphic02 from '../../assets/img/graphic/graphic-02.png';
+import Graphic03 from '../../assets/img/graphic/graphic-03.png';
 
 const PageLoginBrand = () => {
   return (

@@ -1,14 +1,13 @@
 import React from 'react';
-import useForm from '../hooks/useForm';
-import Button from '../components/button';
-import Input from '../components/forms/input';
-import Check from '../components/forms/check';
+import useForm from '../../hooks/useForm';
+import Button from '../../components/button';
+import Input from '../../components/forms/input';
+import Check from '../../components/forms/check';
 
 const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
-  const userLogin = useForm();
+  const userLogin = useForm('email');
   const userPassword = useForm();
   const rememberMe = useForm();
-  const [valueRememberMe, setValueRememberMe] = React.useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -38,6 +37,7 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
           placeholder="Usuário ou e-mail"
           icon="user"
           style={{ marginTop: '25px' }}
+          errorMessage="Informe seu usuário."
           {...userLogin}
         />
         <hr className="hr-gradient-right" />
@@ -47,6 +47,7 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
           autoComplete="password"
           placeholder="Digite sua senha"
           icon="lock"
+          errorMessage="Digite sua senha."
           {...userPassword}
         />
         <Check
