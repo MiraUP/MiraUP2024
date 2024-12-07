@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Offcanvas from './../components/offcanvas';
 import Button from '../components/button';
 import Smilles from '../components/smilles';
@@ -116,18 +117,22 @@ const OffcanvasProfile = () => {
         <Button
           Component="a"
           Ripple
-          href="#"
           className="btn-primary waves-effect waves-light"
           Icon="edit"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
         >
           Editar perfil
         </Button>
+
         <Button
-          Component="a"
+          Component="span"
+          href="login"
           Ripple
-          href="#"
           className="btn-secondary waves-effect waves-light"
           Icon="out"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
         >
           Fazer logout
         </Button>

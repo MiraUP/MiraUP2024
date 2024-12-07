@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MouseParallax } from 'react-just-parallax';
 import Brand from '../../components/brand';
 import Icon from '../../components/icon';
@@ -18,12 +19,14 @@ const PageLoginBrand = () => {
           style={{ position: 'absolute', top: '-100px', left: '-50px' }}
         />
       </MouseParallax>
-      <Icon
-        Component="a"
-        IconName="arrow-left"
-        Size="2.5"
-        className="d-inline-block"
-      />
+      <Link to="/">
+        <Icon
+          Component="a"
+          IconName="arrow-left"
+          Size="2.5"
+          className="d-inline-block"
+        />
+      </Link>
       <Brand
         Version="Extended"
         className="logo-extend-white d-inline-block"

@@ -15,9 +15,11 @@
 
 import React from 'react';
 import Icons from './icon';
+import { Link } from 'react-router-dom';
 
 const Button = ({
   Component,
+  href,
   Icon,
   IconPosition,
   StyleBTN,
@@ -108,7 +110,9 @@ const Button = ({
     );
   }
 
-  return <>{RippleBTN}</>;
+  return (
+    <>{href != undefined ? <Link to={href}>{RippleBTN}</Link> : RippleBTN}</>
+  );
 };
 
 export default Button;

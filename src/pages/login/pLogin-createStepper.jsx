@@ -62,7 +62,6 @@ export const StepperSection = ({
                 ? 'w-100 text-white btn-submit'
                 : 'w-50 text-white btn-submit'
             }
-            //onClick={() => end === undefined && setStepper(name + '-stepper-' + orderNext) }
           >
             {btnNext}
             {end === undefined && <Icons IconName="arrow-right" Size="1.5" />}

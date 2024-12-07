@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import Button from '../../components/button';
 import Input from '../../components/forms/input';
@@ -8,9 +9,11 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
   const userLogin = useForm('email');
   const userPassword = useForm();
   const rememberMe = useForm();
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
+    navigate('/');
     if (valueUserLogin.validate()) {
       console.log('enviar');
     } else {
@@ -63,6 +66,7 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
         <Button
           Ripple
           Component="button"
+          type="submit"
           className="w-100 text-white btn-submit"
         >
           Acessar
