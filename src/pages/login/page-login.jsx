@@ -2,7 +2,6 @@ import React from 'react';
 import Footer from '../../layout/footer';
 import PageLoginBrand from './pLogin-brand';
 import PageLoginForm from './pLogin-form';
-import { Link } from 'react-router-dom';
 
 const pageLogin = () => {
   return (
