@@ -10,23 +10,24 @@
 import React from 'react';
 import ExtendedLogo from './../assets/img/logo-extended.svg?react';
 import SignatureLogo from './../assets/img/logo-signature.svg?react';
+import PropTypes from 'prop-types';
 
 const Brand = ({ Version, Color, ...props }) => {
   Color === undefined ? (Color = '#DFE0E4') : (Color = Color);
 
   let Logo;
-  if (Version === undefined) {
+  if (Version === 'Extended') {
     Logo = <ExtendedLogo fill={Color} className={'brand'} {...props} />;
-  } else if (Version === 'Extended') {
-    Logo = <ExtendedLogo fill={Color} className={'brand'} {...props} />;
-  } else if (Version === 'Signature') {
-    Logo = <SignatureLogo fill={Color} className={'brand'} {...props} />;
   } else {
-    Logo =
-      'Non-existent version brand. Choose "Extended" or "Signature" options.';
+    Logo = <SignatureLogo fill={Color} className={'brand'} {...props} />;
   }
 
   return <>{Logo}</>;
+};
+
+Brand.propTypes = {
+  Version: PropTypes.string.isRequired,
+  Color: PropTypes.string,
 };
 
 export default Brand;

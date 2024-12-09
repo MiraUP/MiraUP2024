@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Ripple = ({ Component, Color, children }) => {
   function createRipple(event) {
@@ -35,6 +36,11 @@ const Ripple = ({ Component, Color, children }) => {
       {children}
     </Tag>
   );
+};
+
+Ripple.propTypes = {
+  Component: PropTypes.string,
+  Color: PropTypes.string,
 };
 
 export default Ripple;

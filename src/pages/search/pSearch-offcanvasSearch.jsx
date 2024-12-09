@@ -1,8 +1,8 @@
 import React from 'react';
-import Offcanvas from './../components/offcanvas';
-import Typography from '../components/typography';
-import Icon from './../components/icon';
-import Button from './../components/button';
+import Offcanvas from '../../components/offcanvas';
+import Typography from '../../components/typography';
+import Icon from '../../components/icon';
+import Button from '../../components/button';
 
 const OffcanvasSearch = ({ Categorys }) => {
   return (

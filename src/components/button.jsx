@@ -16,6 +16,7 @@
 import React from 'react';
 import Icons from './icon';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Button = ({
   Component,
@@ -89,30 +90,69 @@ const Button = ({
   }
 
   if (Ripple === true) {
-    RippleBTN = (
-      <Tag
-        className={'btn-ripple btn' + StyleBTN + Size + ' ' + className}
-        onClick={createRipple}
-        {...props}
-      >
-        {IconPositionLeft}
-        {children}
-        {IconPositionRight}
-      </Tag>
-    );
+    RippleBTN =
+      href != undefined ? (
+        <Link
+          className={'btn-ripple btn' + StyleBTN + ' ' + className}
+          onClick={createRipple}
+          to={href}
+        >
+          <span className={'content' + Size} {...props}>
+            {IconPositionLeft}
+            {children}
+            {IconPositionRight}
+          </span>
+        </Link>
+      ) : (
+        <Tag
+          className={'btn-ripple btn' + StyleBTN + Size + ' ' + className}
+          onClick={createRipple}
+        >
+          <span className="content" {...props}>
+            {IconPositionLeft}
+            {children}
+            {IconPositionRight}
+          </span>
+        </Tag>
+      );
   } else {
-    RippleBTN = (
-      <Tag className={'btn' + StyleBTN + Size + ' ' + className} {...props}>
-        {IconPositionLeft}
-        {children}
-        {IconPositionRight}
-      </Tag>
-    );
+    RippleBTN =
+      href != undefined ? (
+        <Link
+          to={href}
+          className={'btn-ripple btn' + StyleBTN + Size + ' ' + className}
+          onClick={createRipple}
+        >
+          <span className="content" {...props}>
+            {IconPositionLeft}
+            {children}
+            {IconPositionRight}
+          </span>
+        </Link>
+      ) : (
+        <Tag className={'btn' + StyleBTN + Size + ' ' + className}>
+          <span className="content" {...props}>
+            {IconPositionLeft}
+            {children}
+            {IconPositionRight}
+          </span>
+        </Tag>
+      );
   }
 
-  return (
-    <>{href != undefined ? <Link to={href}>{RippleBTN}</Link> : RippleBTN}</>
-  );
+  return <>{RippleBTN}</>;
+};
+
+Button.propTypes = {
+  Component: PropTypes.string,
+  href: PropTypes.string,
+  Icon: PropTypes.string,
+  IconPosition: PropTypes.string,
+  StyleBTN: PropTypes.string,
+  Size: PropTypes.string,
+  Ripple: PropTypes.bool,
+  RippleColor: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Button;

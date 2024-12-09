@@ -7,9 +7,9 @@
   &-header {
     justify-content: space-between;
 
-    .button-close {
+    .button-close .content .icon {
       color: var(--bs-white);
-      font-size: px(27);
+      font-size: px(27) !important;
     }
   }
 

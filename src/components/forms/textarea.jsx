@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../../components/icon';
+import PropTypes from 'prop-types';
 
 const Textarea = ({
   value,
@@ -34,6 +35,16 @@ const Textarea = ({
       </label>
     </span>
   );
+};
+
+Textarea.propTypes = {
+  value: PropTypes.string,
+  setValue: PropTypes.func,
+  id: PropTypes.string,
+  row: PropTypes.number,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  Icon: PropTypes.string,
 };
 
 export default Textarea;

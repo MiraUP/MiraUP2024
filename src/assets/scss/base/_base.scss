@@ -13,5 +13,9 @@ html {
 
 ::selection {
   color: var(--bs-white);
-  background-color: rgba(#3D44D5, .8);
+  background-color: rgba($violet, .8);
+}
+
+.page-anima {
+  @include anima-fade-left;
 }

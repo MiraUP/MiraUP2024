@@ -1,6 +1,7 @@
 import React from 'react';
-import Icons from '../../components/icon';
-import Button from '../../components/button';
+import Icons from './icon';
+import Button from './button';
+import PropTypes from 'prop-types';
 
 export const Stepper = ({ children, ...props }) => {
   return (
@@ -43,31 +44,40 @@ export const StepperSection = ({
         {order != '1' && btnBack != 'none' && (
           <Button
             Ripple
-            type="button"
-            Component="button"
+            Component="a"
             className="w-50 text-white btn-submit"
             onClick={() => setStepper(name + '-stepper-' + orderBack)}
           >
-            <Icons IconName="arrow-left" Size="1.5" />
+            <Icons IconName="arrow-left" Size={1.5} />
             {btnBack}
           </Button>
         )}
         {btnNext != 'none' && (
           <Button
             Ripple
-            type="submit"
             Component="button"
             className={
-              order === '1'
+              order === 1
                 ? 'w-100 text-white btn-submit'
                 : 'w-50 text-white btn-submit'
             }
           >
             {btnNext}
-            {end === undefined && <Icons IconName="arrow-right" Size="1.5" />}
+            {end === undefined && <Icons IconName="arrow-right" Size={1.5} />}
           </Button>
         )}
       </footer>
     </section>
   );
+};
+
+StepperSection.propTypes = {
+  stepper: PropTypes.string,
+  setStepper: PropTypes.func,
+  name: PropTypes.string,
+  order: PropTypes.number,
+  btnBack: PropTypes.string,
+  btnNext: PropTypes.string,
+  end: PropTypes.bool,
+  className: PropTypes.string,
 };

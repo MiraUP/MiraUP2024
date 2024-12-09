@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from './icon';
-import Button from './button';
+import Icon from '../components/icon';
+import Button from '../components/button';
 import Typography from '../components/typography';
 
 const notifications = [
@@ -80,7 +80,7 @@ const DropdownNotification = () => {
                 <Icon
                   IconName={icon}
                   Animate
-                  Stroke="80"
+                  Stroke={80}
                   Trigger="hover"
                   class={read ? '' : 'notification-new notification-left'}
                   style={{ width: '60px', height: '60px' }}
@@ -99,7 +99,7 @@ const DropdownNotification = () => {
                   Component="button"
                   Size="sm"
                   StyleBTN="primary"
-                  style={{ width: '72px' }}
+                  style={{ width: '73px' }}
                 >
                   {read === true ? (
                     <Icon

@@ -1,7 +1,7 @@
 import React from 'react';
 import useForm from '../../hooks/useForm';
 import Input from '../../components/forms/input';
-import { Stepper, StepperSection } from './pLogin-createStepper';
+import { Stepper, StepperSection } from '../../components/Stepper';
 
 const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
   const [stepper, setStepper] = React.useState('create-user-stepper-1');
@@ -24,7 +24,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
     if (stepper === 'create-user-stepper-1') {
       if (inputName.value === '') {
         inputName.focus();
-      } else if (inputUser.value.length < 3) {
+      } else if (userCreate.error || inputUser.error) {
         inputUser.focus();
       } else {
         setStepper('create-user-stepper-2');
@@ -42,13 +42,12 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
     if (stepper === 'create-user-stepper-3') {
       if (inputPassword.error || inputPassword.value === '') {
         inputPassword.focus();
-        console.log('foi');
       } else {
         if (inputPassword.value === inputPasswordRepeat.value) {
           setStepper('create-user-stepper-4');
         } else {
           inputPassword.focus();
-          setError('Senhas diferentes');
+          //setError('Senhas diferentes');
         }
       }
     }
@@ -57,7 +56,9 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
   return (
     <div
       className={
-        LoginCreate === 'Create' ? 'tab-pane fade show active' : 'tab-pane fade'
+        LoginCreate === '/login/criar-conta'
+          ? 'tab-pane anima-fade-right show active'
+          : 'tab-pane fade anima-fade-right'
       }
       id="nav-create"
       role="tabpanel"
@@ -70,7 +71,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
             stepper={stepper}
             setStepper={setStepper}
             name="create-user"
-            order="1"
+            order={1}
           >
             <Input
               type="text"
@@ -99,7 +100,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
             stepper={stepper}
             setStepper={setStepper}
             name="create-user"
-            order="2"
+            order={2}
           >
             <Input
               type="text"
@@ -117,7 +118,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
             setStepper={setStepper}
             name="create-user"
             btnNext="Cadastrar"
-            order="3"
+            order={3}
           >
             <Input
               type="password"
@@ -148,7 +149,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
             name="create-user"
             btnNext="none"
             btnBack="none"
-            order="4"
+            order={4}
             end
           >
             Mensagem de sucesso!

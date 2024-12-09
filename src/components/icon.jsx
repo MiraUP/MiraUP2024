@@ -21,6 +21,7 @@
 
 import lottie from 'lottie-web';
 import { defineElement } from '@lordicon/element';
+import PropTypes from 'prop-types';
 
 // define "lord-icon" custom element with default properties
 defineElement(lottie.loadAnimation);
@@ -41,7 +42,7 @@ const Icons = ({
   let Icon;
   let Tag;
   Component === undefined ? (Tag = 'i') : (Tag = Component);
-  Stroke === undefined ? (Stroke = '100') : (Stroke = Stroke);
+  Stroke === undefined ? (Stroke = 100) : (Stroke = Stroke);
 
   if (Animate === true) {
     Color === undefined
@@ -75,6 +76,18 @@ const Icons = ({
   }
 
   return <>{Icon}</>;
+};
+
+Icons.propTypes = {
+  Component: PropTypes.string,
+  IconName: PropTypes.string.isRequired,
+  Animate: PropTypes.bool,
+  Trigger: PropTypes.string,
+  Color: PropTypes.string,
+  Stroke: PropTypes.number,
+  Size: PropTypes.number,
+  className: PropTypes.string,
+  Hover: PropTypes.string,
 };
 
 export default Icons;

@@ -3,7 +3,7 @@ import React from 'react';
 const GalleryNav = () => {
   return (
     <>
-      <nav className="container gallery-bar">
+      <nav className="anima-fade-left container gallery-bar">
         <div className="row">
           <div className="col-md-auto me-auto col-sm-12">
             <div
@@ -23,7 +23,7 @@ const GalleryNav = () => {
                 className="btn btn-transparent-group filter-button"
                 htmlFor="allFilterPosts"
               >
-                Mostrar tudo
+                <span className="content">Mostrar tudo</span>
               </label>
 
               <input
@@ -38,7 +38,7 @@ const GalleryNav = () => {
                 className="btn btn-transparent-group filter-button"
                 htmlFor="newPosts"
               >
-                Novidades
+                <span className="content">Novidades</span>
               </label>
 
               <input
@@ -53,7 +53,7 @@ const GalleryNav = () => {
                 className="btn btn-transparent-group filter-button"
                 htmlFor="favoritePost"
               >
-                Favoritos
+                <span className="content">Favoritos</span>
               </label>
             </div>
           </div>
@@ -67,8 +67,10 @@ const GalleryNav = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Filtrar
-                <i className="icon icon-filter"></i>
+                <span className="content">
+                  Filtrar
+                  <i className="icon icon-filter"></i>
+                </span>
               </a>
               <ul
                 className="dropdown-menu dropdown-menu-dark"

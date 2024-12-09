@@ -1,7 +1,9 @@
 import React from 'react';
-import PageSearch from '../pages/page-search';
+import PageSearch from '../pages/search/page-search';
 import useLocalStorage from '../hooks/useLocalStorage';
 import useFetch from '../hooks/useFetch';
+import Header from '../layout/header';
+import Footer from '../layout/footer';
 
 const layoutBase = () => {
   //Exemplo de criação no Local Storage com o Hook useLocalStorage
@@ -16,15 +18,15 @@ const layoutBase = () => {
   React.useEffect(() => {
     async function fetchData() {
       const { response, json } = await request(
-        'https://ranekapi.origamid.dev/json/api/produto',
+        'http://miraup.test/json/api/photo',
       );
-      console.log(response);
+      //console.log(response);
     }
     fetchData();
   }, [request]);
 
   if (error) {
-    console.log(error);
+    //console.log(error);
   } else if (loading) {
     console.log('Carregando...');
   } else if (data) {
@@ -35,7 +37,9 @@ const layoutBase = () => {
 
   return (
     <>
+      <Header />
       <PageSearch />
+      <Footer />
     </>
   );
 };

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Offcanvas from './../components/offcanvas';
-import Button from '../components/button';
-import Smilles from '../components/smilles';
-import Typography from '../components/typography';
-import Icon from '../components/icon';
-import Tooltip from '../components/tooltip';
+import Offcanvas from '../../components/offcanvas';
+import Button from '../../components/button';
+import Smilles from '../../components/smilles';
+import Typography from '../../components/typography';
+import Icon from '../../components/icon';
+import Tooltip from '../../components/tooltip';
 
 const OffcanvasProfile = () => {
   return (
@@ -24,7 +23,7 @@ const OffcanvasProfile = () => {
             EmoHover="Friendly"
             Component="button"
             alt="Foto utilizada no perfil."
-            className="button-notification notification-new"
+            className="button-notification"
             style={{
               width: '120px',
               height: '120px',
@@ -84,7 +83,7 @@ const OffcanvasProfile = () => {
                 IconName="drawing-tablet"
                 style={{ width: '60px', height: '60px' }}
                 className="icon-animate-text"
-                Stroke="80"
+                Stroke={80}
               >
                 <Typography
                   Component="span"

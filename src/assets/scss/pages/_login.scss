@@ -61,7 +61,7 @@
         right: px(-20);
       }
 
-      span {
+      span.diamond {
         position: absolute;
         width: px(20);
         height: px(20);
@@ -78,14 +78,27 @@
         color:rgba($white, .5);
         border: none;
         height: px(108);
-        padding: px(30);
+        background: none;
+        padding: 0;
         @include anima-basic;
+
+        .content {
+          display: block;
+          font-weight: 400;
+          padding: px(30);
+          height: px(108);
+          align-content: center;
+          @include anima-basic;
+        }
       
         &.active {
           color:rgba($white, 1);
-          font-size: px(28);
-          background: none;
           @include anima-basic;
+
+          span {
+            font-weight: 700;
+            font-size: px(28);
+          }
         }
 
         &:hover {

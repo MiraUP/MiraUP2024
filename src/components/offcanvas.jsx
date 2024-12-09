@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '../components/typography';
 import Button from '../components/button';
+import PropTypes from 'prop-types';
 
 const Offcanvas = ({ Header, Body, Footer, Short, Title, children }) => {
   if (Header === true) {
@@ -15,7 +16,8 @@ const Offcanvas = ({ Header, Body, Footer, Short, Title, children }) => {
         </Typography>
         <Button
           Component="button"
-          className="button-close icon-close"
+          className="button-close"
+          Icon="close"
           type="button"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
@@ -45,6 +47,14 @@ const Offcanvas = ({ Header, Body, Footer, Short, Title, children }) => {
       {Footer}
     </>
   );
+};
+
+Offcanvas.propTypes = {
+  Header: PropTypes.bool,
+  Body: PropTypes.bool,
+  Footer: PropTypes.bool,
+  Short: PropTypes.string,
+  Title: PropTypes.string,
 };
 
 export default Offcanvas;

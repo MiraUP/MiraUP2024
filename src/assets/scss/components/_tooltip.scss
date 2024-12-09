@@ -5,4 +5,11 @@
     font-size: px(12);
   }
   &-arrow::before { border-bottom-color: lighten($black, 5%) !important;}
+
+  &[data-popper-placement="left"] {
+    .tooltip-arrow::before {
+      border-left-color: lighten($black, 5%) !important;
+      border-bottom-color: transparent !important;
+    }
+  }
 }

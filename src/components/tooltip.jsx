@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tooltip } from 'bootstrap';
+import PropTypes from 'prop-types';
 
 function TooltipComponent({ children, Title, Placement, Trigger, Offset }) {
   const tooltipRef = React.useRef();
@@ -42,6 +43,13 @@ const Tooltips = ({ children, Title, Placement, Trigger, Offset }) => {
       )}
     </>
   );
+};
+
+Tooltips.propTypes = {
+  Title: PropTypes.string,
+  Placement: PropTypes.string,
+  Trigger: PropTypes.string,
+  Offset: PropTypes.string,
 };
 
 export default Tooltips;

@@ -1,12 +1,12 @@
 import React from 'react';
-import Brand from './brand';
-import Icon from './icon';
-import Smilles from './smilles';
-import Tooltip from './tooltip';
-import MainMenu from '../layout/mainMenu';
-import OffcanvasProfile from './../layout/offcanvasProfile';
+import Brand from '../components/brand';
+import Icon from '../components/icon';
+import Smilles from '../components/smilles';
+import Tooltip from '../components/tooltip';
+import MainMenu from './mainMenu';
+import OffcanvasProfile from '../pages/search/pSearch-offcanvasProfile';
 import DropdownNotification from './dropdownNotification';
-import Button from './button';
+import Button from '../components/button';
 
 const Header = () => {
   const [mainMenu, setMainMenu] = React.useState(false);
@@ -34,11 +34,11 @@ const Header = () => {
   return (
     <>
       <OffcanvasProfile />
-      <header className="nav-primary fixed-top">
+      <header className="anima-fade-left nav-primary fixed-top">
         <div className="container">
           <div className="row header">
             <div className="col-auto me-auto logo">
-              <a>
+              <a className="align-self-center">
                 <Brand
                   Version="Signature"
                   className="logo-ass-white"
@@ -92,7 +92,7 @@ const Header = () => {
                       <Icon
                         IconName="bell-notification"
                         Animate
-                        Stroke="130"
+                        Stroke={130}
                         Trigger="hover"
                         style={{ width: '40px', height: '40px' }}
                       />

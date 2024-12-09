@@ -1,6 +1,7 @@
 import React from 'react';
-import Typography from '../components/typography';
-import Button from './../components/button';
+import Typography from '../../components/typography';
+import Icon from '../../components/icon';
+import Tooltip from '../../components/tooltip';
 
 const galleryItem = [
   {
@@ -41,8 +42,17 @@ const galleryItem = [
 ];
 
 const GaleryMain = () => {
+  const [produtos, setProdutos] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch('https://ranekapi.origamid.dev/json/api/produto/')
+      .then((r) => r.json())
+      .then((json) => setProdutos(json));
+  }, []);
+  console.log(produtos);
+
   return (
-    <section className="container gallery-main">
+    <section className="anima-fade-left container gallery-main">
       <div className="row">
         <div id="gallery-list" className="col-12 gallery-list">
           {galleryItem.map(
@@ -60,29 +70,34 @@ const GaleryMain = () => {
             ) => (
               <section className="gallery-item" key={index}>
                 <div className="download-group">
-                  <Button
-                    Component="a"
-                    href={download}
-                    StyleBTN="link"
-                    target="_blank"
-                    className="download-fast icon icon-download"
-                    title="Download rápido"
-                  />
+                  <Tooltip Title="Download rápido">
+                    <a
+                      href={download}
+                      target="_blank"
+                      className="download-fast btn"
+                    >
+                      <Icon
+                        IconName="download"
+                        style={{ fontSize: '2rem' }}
+                      ></Icon>
+                    </a>
+                  </Tooltip>
 
-                  <button
-                    className="button-heart favorite-post"
-                    id={'favorite-post-' + index}
-                    title="Favorito"
-                  >
-                    <input
-                      type="checkbox"
-                      id={'button-heart-' + index}
-                      name="favorite"
-                      data-id={index}
-                      defaultChecked={favorite}
-                    />
-                    <label htmlFor={'button-heart-' + index}></label>
-                  </button>
+                  <Tooltip Title="Favorito">
+                    <button
+                      className="button-heart favorite-post"
+                      id={'favorite-post-' + index}
+                    >
+                      <input
+                        type="checkbox"
+                        id={'button-heart-' + index}
+                        name="favorite"
+                        data-id={index}
+                        defaultChecked={favorite}
+                      />
+                      <label htmlFor={'button-heart-' + index}></label>
+                    </button>
+                  </Tooltip>
                 </div>
 
                 <ul className="files-type">
@@ -90,8 +105,10 @@ const GaleryMain = () => {
                     <i className="icon icon-info"></i>
                   </li>
                   {fileType.map(({ fileName, fileShort }, index) => (
-                    <li key={index} title={fileName}>
-                      <i className={'icon icon-' + fileShort}></i>
+                    <li key={index}>
+                      <Tooltip Title={fileName} Placement="left" Offset="0, 15">
+                        <i className={'icon icon-' + fileShort}></i>
+                      </Tooltip>
                     </li>
                   ))}
                 </ul>

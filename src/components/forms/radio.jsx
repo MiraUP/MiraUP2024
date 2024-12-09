@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Radio = ({ value, setValue, Options, id, className }) => {
   return (
@@ -25,6 +26,14 @@ const Radio = ({ value, setValue, Options, id, className }) => {
       ))}
     </>
   );
+};
+
+Radio.propTypes = {
+  value: PropTypes.string,
+  setValue: PropTypes.func,
+  id: PropTypes.string,
+  Options: PropTypes.array,
+  className: PropTypes.string,
 };
 
 export default Radio;

@@ -1,22 +1,20 @@
 import React from 'react';
 import Icons from '../../components/icon';
-import Button from '../button';
+import PropTypes from 'prop-types';
 
 const Select = ({
   value,
   setValue,
   id,
-  Row,
   className,
-  Placeholder,
+  placeholder,
   Icon,
   Options,
   ...props
 }) => {
   id === undefined ? (id = '') : (id = id);
-  Row === undefined ? (Row = '5') : (Row = Row);
   className === undefined ? (className = '') : (className = className);
-  Placeholder === undefined ? (Placeholder = '') : (Placeholder = Placeholder);
+  placeholder === undefined ? (Placeholder = '') : (Placeholder = placeholder);
 
   return (
     <>
@@ -79,6 +77,16 @@ const Select = ({
       </div>
     </>
   );
+};
+
+Select.propTypes = {
+  value: PropTypes.string,
+  setValue: PropTypes.func,
+  id: PropTypes.string,
+  Options: PropTypes.array,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  Icon: PropTypes.string,
 };
 
 export default Select;

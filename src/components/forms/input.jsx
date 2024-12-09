@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../icon';
+import PropTypes from 'prop-types';
 
 const Input = ({
   id,
@@ -129,6 +130,21 @@ const Input = ({
       </div>
     </>
   );
+};
+
+Input.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  id: PropTypes.string,
+  className: PropTypes.string,
+  type: PropTypes.string,
+  error: PropTypes.string,
+  onBlur: PropTypes.func,
+  placeholder: PropTypes.string,
+  autoComplete: PropTypes.string,
+  icon: PropTypes.string,
+  errorMessage: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default Input;

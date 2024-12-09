@@ -64,6 +64,70 @@
   @include prefix(transform, rotate(90deg) scale(1.2), moz webkit ms o);
 }
 
+@mixin anima-fade-left {
+  @include prefix(transform, translateX(-2rem), moz webkit ms o);
+  opacity: 0;
+  animation: animaFadeLeft .5s forwards;
+
+  @keyframes animaFadeLeft {
+    to {
+      @include prefix(transform, initial, moz webkit ms o);
+      opacity: initial;
+    }
+  }
+}
+.anima-fade-left {
+  @include anima-fade-left;
+}
+
+@mixin anima-fade-right {
+  @include prefix(transform, translateX(2rem), moz webkit ms o);
+  opacity: 0;
+  animation: animaFadeRight .5s forwards;
+
+  @keyframes animaFadeRight {
+    to {
+      @include prefix(transform, initial, moz webkit ms o);
+      opacity: initial;
+    }
+  }
+}
+.anima-fade-right {
+  @include anima-fade-right;
+}
+
+@mixin anima-fade-top {
+  @include prefix(transform, translateY(-2rem), moz webkit ms o);
+  opacity: 0;
+  animation: animaFadeTop .5s forwards;
+
+  @keyframes animaFadeTop {
+    to {
+      @include prefix(transform, initial, moz webkit ms o);
+      opacity: initial;
+    }
+  }
+}
+.anima-fade-top {
+  @include anima-fade-top;
+}
+
+@mixin anima-fade-bottom {
+  @include prefix(transform, translateY(2rem), moz webkit ms o);
+  opacity: 0;
+  animation: animaFadeBottom .5s forwards;
+
+  @keyframes animaFadeBottom {
+    to {
+      @include prefix(transform, initial, moz webkit ms o);
+      opacity: initial;
+    }
+  }
+}
+.anima-fade-bottom {
+  @include anima-fade-bottom;
+}
+
 // Animation Bell
 @mixin anima-bell {
   animation: ring 8s ease-in-out;

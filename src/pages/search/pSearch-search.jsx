@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from './icon';
-import OffcanvasSearch from '../layout/offcanvasSearch';
-import Tooltip from './tooltip';
+import Icon from '../../components/icon';
+import OffcanvasSearch from './pSearch-offcanvasSearch';
+import Tooltip from '../../components/tooltip';
 import { left } from '@popperjs/core';
 
 const CategoryNav = [
@@ -45,7 +45,7 @@ const Search = () => {
       <section className="container search-main">
         <div className="row">
           <div className="col">
-            <div className="search-main-box">
+            <div className="anima-fade-right search-main-box">
               <nav
                 className="search-main-filter btn-group category-post"
                 role="group"
@@ -66,7 +66,9 @@ const Search = () => {
                     htmlFor="allCategory"
                     data-category-name="all"
                   >
-                    <span>Categorias: </span> Todas
+                    <span className="content">
+                      <span>Categorias: </span> Todas
+                    </span>
                   </label>
                 </button>
 
@@ -86,7 +88,7 @@ const Search = () => {
                         htmlFor={'btn-category-' + short + '-filter'}
                         data-category-name={short}
                       >
-                        {name}
+                        <span className="content">{name}</span>
                       </label>
                     </button>
                   ))}
@@ -107,9 +109,11 @@ const Search = () => {
                     aria-controls="offcanvasSearch"
                     htmlFor="more"
                   >
-                    <Tooltip Title="Ver todas as categorias" Offset="0, 25">
-                      <Icon IconName="more-v" />
-                    </Tooltip>
+                    <span className="content">
+                      <Tooltip Title="Ver todas as categorias" Offset="0, 25">
+                        <Icon IconName="more-v" />
+                      </Tooltip>
+                    </span>
                   </label>
                 </button>
               </nav>
@@ -135,7 +139,7 @@ const Search = () => {
                         Animate
                         IconName="magnifier-zoom-search"
                         Trigger="hover"
-                        Stroke="100"
+                        Stroke={100}
                         style={{ width: '65px', height: '65px' }}
                         Class={inputSearch === '' ? 'fade-in' : 'fade-out'}
                       />
@@ -143,7 +147,7 @@ const Search = () => {
                         Animate
                         IconName="erase"
                         Trigger="hover"
-                        Stroke="100"
+                        Stroke={100}
                         style={{
                           width: '50px',
                           height: '50px',

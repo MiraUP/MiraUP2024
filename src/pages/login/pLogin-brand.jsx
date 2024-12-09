@@ -21,9 +21,9 @@ const PageLoginBrand = () => {
       </MouseParallax>
       <Link to="/">
         <Icon
-          Component="a"
+          Component="i"
           IconName="arrow-left"
-          Size="2.5"
+          Size={2.5}
           className="d-inline-block"
         />
       </Link>

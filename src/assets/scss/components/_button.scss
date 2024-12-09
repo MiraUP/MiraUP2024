@@ -36,6 +36,10 @@
     position: relative;
     padding: 0;
 
+    .content {
+      padding: 0 !important;
+    }
+
     input[type=checkbox] {
       width: 0;
       height: 0;
@@ -81,6 +85,12 @@
 
 .btn {
   @include fontTitle;
+  padding: 0 !important;
+
+  .content {
+    display: inline-block;
+    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  }
 
   &:active {
     border-color: transparent !important;
@@ -88,6 +98,10 @@
 
   .icon {
     margin:0 px(8);
+  }
+
+  &-sm .content{
+    font-size: var(--bs-btn-font-size);
   }
 
   &-group {
@@ -109,6 +123,10 @@
   }
 
   &-submit {
+
+    .content {
+      padding: px(36) px(10);
+    }
 
     &.btn-success {
       background-color: var(--bs-green) !important;

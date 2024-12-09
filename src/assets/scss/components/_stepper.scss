@@ -15,9 +15,17 @@
     }
 
     footer {
-      button {  
+      .btn {  
+        .content {
+          width: 100%;
+        }
+        
         .icon {
           display: inline;
+
+          &:hover {
+            color:var(--bs-white);
+          }
         }
       }
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Check = ({ value, setValue, Options, id, className }) => {
   id === undefined ? (id = '') : (id = id);
@@ -34,6 +35,14 @@ const Check = ({ value, setValue, Options, id, className }) => {
       ))}
     </>
   );
+};
+
+Check.propTypes = {
+  value: PropTypes.string,
+  setValue: PropTypes.func,
+  Options: PropTypes.array,
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Check;

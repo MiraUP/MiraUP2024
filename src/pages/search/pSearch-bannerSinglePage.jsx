@@ -1,7 +1,7 @@
 import React from 'react';
 import { Marquee } from '@devnomic/marquee';
 import '@devnomic/marquee/dist/index.css';
-import Typography from '../components/typography';
+import Typography from '../../components/typography';
 
 const Path = 'src/assets/img/banner/';
 const ImgsBanner = [
@@ -17,7 +17,7 @@ const ImgsBanner = [
 
 const BannerSinglePage = () => {
   return (
-    <section className="container banner-infinity">
+    <section className="container anima-fade-left banner-infinity">
       <div className="row">
         <div className="col">
           <Typography

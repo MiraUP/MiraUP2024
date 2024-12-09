@@ -1,30 +1,28 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
+import { UserContent } from '../../hooks/userContext';
 import Button from '../../components/button';
 import Input from '../../components/forms/input';
-import Check from '../../components/forms/check';
 
 const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
-  const userLogin = useForm('email');
-  const userPassword = useForm();
-  const rememberMe = useForm();
-  const navigate = useNavigate();
+  const username = useForm();
+  const password = useForm();
+  const { userLogin } = React.useContext(UserContent);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    navigate('/');
-    if (valueUserLogin.validate()) {
-      console.log('enviar');
-    } else {
-      console.log('Não enviar');
+
+    if (username.validate() && password.validate()) {
+      userLogin(username.value, password.value);
     }
   }
 
   return (
     <div
       className={
-        LoginCreate === 'Login' ? 'tab-pane fade show active' : 'tab-pane fade'
+        LoginCreate === '/login'
+          ? 'tab-pane anima-fade-left show active'
+          : 'tab-pane anima-fade-left'
       }
       id="nav-login"
       role="tabpanel"
@@ -41,7 +39,7 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
           icon="user"
           style={{ marginTop: '25px' }}
           errorMessage="Informe seu usuário."
-          {...userLogin}
+          {...username}
         />
         <hr className="hr-gradient-right" />
         <Input
@@ -51,14 +49,13 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
           placeholder="Digite sua senha"
           icon="lock"
           errorMessage="Digite sua senha."
-          {...userPassword}
+          {...password}
         />
-        <Check
+        {/* <Check
           id="rememberme"
           className=" w-100"
           Options={['Lembre-se de mim']}
-          {...rememberMe}
-        />
+        /> */}
         <hr
           className="hr-gradient-center"
           style={{ marginTop: '25px', marginBottom: '0' }}
@@ -73,7 +70,13 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
         </Button>
       </form>
 
-      <Button Icon="question" Component="a" Size="sm" className="link">
+      <Button
+        Icon="question"
+        Component="a"
+        href="perdi-a-senha"
+        Size="sm"
+        className="link"
+      >
         Esqueci minha senha
       </Button>
     </div>
