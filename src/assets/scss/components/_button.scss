@@ -17,7 +17,6 @@
 
   &.active,
   &:hover {
-
     &::before {
       @include prefix(transform, translateX(0px), moz webkit ms o);
       width: px(25);
@@ -31,7 +30,6 @@
 }
 
 .button {
-
   &-heart {
     position: relative;
     padding: 0;
@@ -40,13 +38,13 @@
       padding: 0 !important;
     }
 
-    input[type=checkbox] {
+    input[type='checkbox'] {
       width: 0;
       height: 0;
       opacity: 0;
       position: absolute;
 
-      &:checked+label {
+      &:checked + label {
         color: var(--bs-red);
 
         &::before {
@@ -74,7 +72,7 @@
 
   &-close {
     @include anima-basic;
-    opacity: .8;
+    opacity: 0.8;
 
     &:hover {
       opacity: 1;
@@ -86,28 +84,35 @@
 .btn {
   @include fontTitle;
   padding: 0 !important;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: px(5);
 
   .content {
-    display: inline-block;
+    display: inline-flex;
     padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: px(5);
+    width: 100%;
   }
 
   &:active {
     border-color: transparent !important;
   }
 
-  .icon {
-    margin:0 px(8);
-  }
-
-  &-sm .content{
+  &-sm .content {
     font-size: var(--bs-btn-font-size);
   }
 
   &-group {
-
     &-transparent {
-
       label {
         border: none;
       }
@@ -123,7 +128,6 @@
   }
 
   &-submit {
-
     .content {
       padding: px(36) px(10);
     }
@@ -131,6 +135,14 @@
     &.btn-success {
       background-color: var(--bs-green) !important;
     }
+  }
+
+  &:disabled {
+    border: none;
+    background-color: lighten($black, 20%);
+    color: var(--white) !important;
+    opacity: 0.4;
+    @include anima-basic;
   }
 }
 
@@ -151,10 +163,9 @@
 }
 
 .btn-group {
-
   .btn-transparent-group {
     position: relative;
-    color: rgba(var(--bs-white), .15);
+    color: rgba(var(--bs-white), 0.15);
     border: none;
     align-self: center;
     @include anima-basic;
@@ -168,20 +179,18 @@
       border-radius: 5px;
       top: calc(50% - 20px);
       right: 0;
-      background-color: rgba($white, .15);
+      background-color: rgba($white, 0.15);
     }
 
     &:last-child {
-
       &::after {
         display: none;
       }
     }
   }
 
-  &>.btn-check:checked {
-
-    &+.btn-transparent-group {
+  & > .btn-check:checked {
+    & + .btn-transparent-group {
       border: none;
       color: var(--bs-white);
     }
@@ -189,9 +198,7 @@
 }
 
 .dropdown {
-
   &-toggle {
-
     &::after {
       @include fontIcon;
       content: '\e906';
@@ -234,8 +241,7 @@
       @include prefix(transform, rotate(45deg), moz webkit ms o);
     }
 
-    &[data-popper-placement="top-end"] {
-
+    &[data-popper-placement='top-end'] {
       &::before {
         bottom: px(-10);
         top: auto;
@@ -245,7 +251,6 @@
 }
 
 .btn-post {
-
   &-next,
   &-prev {
     display: flex;
@@ -253,7 +258,7 @@
     z-index: 10;
     top: px(700);
     margin: px(20) 0;
-    border: px(2) solid rgba(var(--bs-white), .3);
+    border: px(2) solid rgba(var(--bs-white), 0.3);
     padding: px(5);
     background: rgba(var(--bs-white), 0);
     overflow: hidden;
@@ -261,7 +266,7 @@
     max-width: px(344);
 
     .icon {
-      color: rgba(var(--bs-white), .3);
+      color: rgba(var(--bs-white), 0.3);
       font-size: px(32);
     }
 

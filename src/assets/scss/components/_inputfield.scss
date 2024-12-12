@@ -1,0 +1,113 @@
+.input-field {
+  width: 100%;
+
+  &-icon {
+    padding-right: px(25);
+  }
+
+  &-action {
+    padding-left: px(25);
+    cursor: pointer;
+  }
+
+  .input {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      height: px(2);
+      background-image: var(--gradient-cyan-right);
+      opacity: 0.6;
+      bottom: 0;
+      @include anima-(0.2s);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: px(3);
+      width: 0;
+      right: 0;
+      opacity: 0;
+      @include anima-basic;
+      background: var(--cyan);
+    }
+
+    &:has(input:focus, input:not(:placeholder-shown), input:-webkit-autofill) {
+      &::after {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      &::before {
+        height: px(3);
+        opacity: 1;
+      }
+    }
+
+    input {
+      background: none;
+      width: 100%;
+      border: none;
+      padding: px(25) 0;
+      color: var(--white);
+
+      &:focus,
+      &:not(:placeholder-shown),
+      &:-webkit-autofill {
+        outline: none;
+
+        & ~ .input-field-label {
+          @include prefix(
+            transform,
+            translateY(-30px) translateX(-5px) scale(0.8),
+            moz webkit ms o
+          );
+        }
+      }
+    }
+  }
+
+  &-label {
+    position: absolute;
+    left: calc(px(25) + 25px);
+    opacity: 0.8;
+    @include prefix(
+      transform,
+      translateY(initial) translateY(initial) scale(initial),
+      moz webkit ms o
+    );
+    @include anima-basic;
+  }
+
+  .helper-text {
+    font-size: small;
+  }
+
+  &-error {
+    .input-field {
+      &-icon {
+        color: var(--red) !important;
+      }
+    }
+    .input {
+      &::after {
+        background: var(--red);
+      }
+      &::before {
+        background-image: var(--gradient-red-right);
+      }
+    }
+  }
+}

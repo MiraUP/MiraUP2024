@@ -2,21 +2,43 @@
   2.1 Color Pallets */
 
 //Primary colors
-$blue     : #3742f9;
-$cyan     : #48DAFA;
-$violet     : #6610f2;
-$green      : #1ABB9B;
-$black    : #354050;
-$white    : #DFE0E4;
-$orange     : #F4A003;
-$red        : #ba3a31;
-
+$blue: #3742f9;
+$cyan: #48dafa;
+$violet: #6610f2;
+$green: #1abb9b;
+$orange: #f4a003;
+$red: #ba3a31;
+$black: #354050;
+$white: #dfe0e4;
 
 /*** 
   2.2 Variables Property Colors 
 */
-@each $prop,
-$color in $colors {
+
+/*** 
+  2.1 Color Pallets */
+
+:root {
+  //Variables
+  @each $nameColor, $color in $colors {
+    --#{$nameColor}: #{$color};
+
+    @each $nameBrightness, $value in $brightness {
+      --#{$nameColor}-light-#{$nameBrightness}: lighten(#{$color}, #{$value});
+      --#{$nameColor}-dark-#{$nameBrightness}: darken(#{$color}, #{$value});
+    }
+
+    @each $gradientsPositions, $value in $gradients {
+      --gradient-#{$nameColor}-#{$gradientsPositions}: linear-gradient(
+        #{$value},
+        #{$color}00 20%,
+        #{$color}ff 100%
+      );
+    }
+  }
+}
+
+@each $prop, $color in $colors {
   .fill-#{$prop} {
     fill: $color;
   }

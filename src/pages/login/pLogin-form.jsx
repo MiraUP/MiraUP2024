@@ -1,30 +1,30 @@
 import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { UserContext } from '../../hooks/userContext';
 import HeadConfig from '../../components/headConfig';
 import Button from '../../components/button';
 import PageLoginLogin from './pLogin-login';
 import PageLoginCreate from './pLogin-create';
 import PasswordLost from './pLogin-passwordLost';
 import PasswordReset from './pLogin-passwordReset';
+import PageLoginLogged from './pLogin-logged';
 
 const PageLoginForm = () => {
-  const [loginCreate, setLoginCreate] = React.useState('/login');
   const location = useLocation();
-
-  React.useEffect(() => {
-    setLoginCreate(location.pathname);
-  }, [location]);
+  const { login } = React.useContext(UserContext);
 
   return (
     <section
       className={
-        loginCreate === '/login' ? 'login-form' : 'login-form create-style'
+        location.pathname === '/login'
+          ? 'login-form'
+          : 'login-form create-style'
       }
     >
       <HeadConfig
-        title={loginCreate === '/login' ? 'Login' : 'Criar conta'}
+        title={location.pathname === '/login' ? 'Login' : 'Criar conta'}
         description={
-          loginCreate === '/login'
+          location.pathname === '/login'
             ? 'Página de login do sistema de ativos digitais MiraUp.'
             : 'Crie uma conta para acessar o sistema de ativos digitais MiraUp.'
         }
@@ -34,7 +34,7 @@ const PageLoginForm = () => {
           Component="a"
           href="/login"
           className={
-            loginCreate === '/login'
+            location.pathname === '/login'
               ? 'nav-link col h2 text-center active'
               : 'nav-link col text-center'
           }
@@ -42,54 +42,42 @@ const PageLoginForm = () => {
           data-bs-toggle="tab"
           data-bs-target="#nav-login"
           aria-controls="nav-login"
-          aria-selected={loginCreate === '/login' ? true : false}
-          onClick={() => setLoginCreate('/login')}
+          aria-selected={location.pathname === '/login' ? true : false}
         >
-          Login
+          {login === true ? 'Conta logada' : 'Fazer login'}
         </Button>
-        <Button
-          Component="a"
-          href="criar-conta"
-          className={
-            loginCreate === '/login/criar-conta'
-              ? 'nav-link col h2 text-center active'
-              : 'nav-link col text-center'
-          }
-          id="nav-create-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#nav-create"
-          aria-controls="nav-create"
-          aria-selected={loginCreate === '/login/criar-conta' ? true : false}
-          onClick={() => setLoginCreate('/login/criar-conta')}
-        >
-          Criar uma conta
-        </Button>
+
+        {login != true && (
+          <>
+            <Button
+              Component="a"
+              href="/login/criar-conta"
+              className={
+                location.pathname === '/login/criar-conta'
+                  ? 'nav-link col h2 text-center active'
+                  : 'nav-link col text-center'
+              }
+              id="nav-create-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-create"
+              aria-controls="nav-create"
+              aria-selected={
+                location.pathname === '/login/criar-conta' ? true : false
+              }
+            >
+              Criar uma conta
+            </Button>
+          </>
+        )}
         <span className="diamond"></span>
       </nav>
 
       <div className="tab-content" id="nav-tabContent">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <PageLoginLogin
-                LoginCreate={loginCreate}
-                SetLoginCreate={setLoginCreate}
-              />
-            }
-          />
-          <Route
-            path="criar-conta"
-            element={
-              <PageLoginCreate
-                LoginCreate={loginCreate}
-                SetLoginCreate={setLoginCreate}
-              />
-            }
-          />
-          <Route path="perdi-a-senha" element={<PasswordLost />} />
-          <Route path="resetar-a-senha" element={<PasswordReset />} />
-        </Routes>
+        {location.pathname === '/login' &&
+          (login === true ? <PageLoginLogged /> : <PageLoginLogin />)}
+        {location.pathname === '/login/criar-conta' && <PageLoginCreate />}
+        {location.pathname === '/login/perdi-a-senha' && <PasswordLost />}
+        {location.pathname === '/login/resetar-a-senha' && <PasswordReset />}
       </div>
     </section>
   );

@@ -2,10 +2,10 @@ import React from 'react';
 import Footer from '../../layout/footer';
 import PageLoginBrand from './pLogin-brand';
 import PageLoginForm from './pLogin-form';
-import { UserContent } from '../../hooks/userContext';
+import { UserContext } from '../../hooks/userContext';
 
 const pageLogin = () => {
-  const { data } = React.useContext(UserContent);
+  const { data } = React.useContext(UserContext);
 
   return (
     <>

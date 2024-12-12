@@ -29,6 +29,7 @@ const Button = ({
   RippleColor,
   className,
   children,
+  disabled,
   ...props
 }) => {
   //Variables
@@ -97,7 +98,14 @@ const Button = ({
           onClick={createRipple}
           to={href}
         >
-          <span className={'content' + Size} {...props}>
+          <span
+            className={
+              'content d-flex align-items-center justify-content-center gap-2' +
+              Size
+            }
+            style={{ minHeight: '104px' }}
+            {...props}
+          >
             {IconPositionLeft}
             {children}
             {IconPositionRight}
@@ -106,9 +114,14 @@ const Button = ({
       ) : (
         <Tag
           className={'btn-ripple btn' + StyleBTN + Size + ' ' + className}
+          disabled={disabled ? true : false}
           onClick={createRipple}
         >
-          <span className="content" {...props}>
+          <span
+            className="content d-flex align-items-center justify-content-center gap-2"
+            style={{ minHeight: '104px' }}
+            {...props}
+          >
             {IconPositionLeft}
             {children}
             {IconPositionRight}
@@ -123,14 +136,21 @@ const Button = ({
           className={'btn-ripple btn' + StyleBTN + Size + ' ' + className}
           onClick={createRipple}
         >
-          <span className="content" {...props}>
+          <span
+            className="content d-flex align-items-center justify-content-center gap-2"
+            style={{ minHeight: '104px' }}
+            {...props}
+          >
             {IconPositionLeft}
             {children}
             {IconPositionRight}
           </span>
         </Link>
       ) : (
-        <Tag className={'btn' + StyleBTN + Size + ' ' + className}>
+        <Tag
+          className={'btn' + StyleBTN + Size + ' ' + className}
+          disabled={disabled ? true : false}
+        >
           <span className="content" {...props}>
             {IconPositionLeft}
             {children}

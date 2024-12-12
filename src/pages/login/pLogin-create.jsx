@@ -1,10 +1,13 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import Input from '../../components/forms/input';
 import { Stepper, StepperSection } from '../../components/Stepper';
+import InputField from '../../components/forms/inputfield';
 
 const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
   const [stepper, setStepper] = React.useState('create-user-stepper-1');
+  const location = useLocation();
 
   const nameCreate = useForm();
   const userCreate = useForm('user');
@@ -56,7 +59,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
   return (
     <div
       className={
-        LoginCreate === '/login/criar-conta'
+        location.pathname === '/login/criar-conta'
           ? 'tab-pane anima-fade-right show active'
           : 'tab-pane fade anima-fade-right'
       }
@@ -64,34 +67,35 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
       role="tabpanel"
       aria-labelledby="nav-create-tab"
       tabIndex="0"
+      style={{ height: '340px' }}
     >
       <form onSubmit={handleSubmit} className="section-create">
-        <Stepper style={{ height: '365px' }}>
+        <Stepper style={{ height: '340px' }}>
           <StepperSection
             stepper={stepper}
             setStepper={setStepper}
             name="create-user"
             order={1}
           >
-            <Input
-              type="text"
-              placeholder="Diga seu nome ou apelido *"
-              icon="smile"
+            <InputField
               id="name"
+              type="text"
+              label="Diga seu nome ou apelido *"
               autoComplete="name"
+              icon="smile"
+              iconSize={1.5}
+              height="47.5"
               {...nameCreate}
-              style={{ margin: '34.5px 0 25px 0' }}
             />
 
-            <hr className="hr-gradient-right" />
-
-            <Input
-              type="text"
-              style={{ margin: '23px 0' }}
-              placeholder="Crie um usuário *"
-              icon="user"
+            <InputField
               id="user-create"
+              type="text"
+              label="Crie um usuário *"
               autoComplete="username"
+              icon="user"
+              iconSize={1.5}
+              height="47.5"
               {...userCreate}
             />
           </StepperSection>

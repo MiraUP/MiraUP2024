@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../hooks/userContext';
 import { MouseParallax } from 'react-just-parallax';
 import Brand from '../../components/brand';
 import Icon from '../../components/icon';
@@ -7,6 +8,8 @@ import Graphic02 from '../../assets/img/graphic/graphic-02.png';
 import Graphic03 from '../../assets/img/graphic/graphic-03.png';
 
 const PageLoginBrand = () => {
+  const { login } = React.useContext(UserContext);
+
   return (
     <section
       className="login-brand text-center"
@@ -19,14 +22,18 @@ const PageLoginBrand = () => {
           style={{ position: 'absolute', top: '-100px', left: '-50px' }}
         />
       </MouseParallax>
-      <Link to="/">
-        <Icon
-          Component="i"
-          IconName="arrow-left"
-          Size={2.5}
-          className="d-inline-block"
-        />
-      </Link>
+      {login && (
+        <>
+          <Link to="/">
+            <Icon
+              Component="i"
+              IconName="arrow-left"
+              Size={2.5}
+              className="d-inline-block"
+            />
+          </Link>
+        </>
+      )}
       <Brand
         Version="Extended"
         className="logo-extend-white d-inline-block"

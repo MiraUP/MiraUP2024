@@ -1,7 +1,8 @@
 /**** Vnedors ****/
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 /**** Abstracts ****/
+@import 'abstracts/_variables';
 @import 'abstracts/_mixins';
 @import 'abstracts/_animations';
 
@@ -19,6 +20,7 @@
 @import 'components/_hr.scss';
 @import 'components/_offcanvas.scss';
 @import 'components/_button.scss';
+@import 'components/_inputfield.scss';
 @import 'components/_ripple.scss';
 @import 'components/_dropdown.scss';
 @import 'components/_notification.scss';
@@ -28,12 +30,12 @@
 @import 'components/_stepper.scss';
 
 /**** Layout ****/
-@import './layout/_nav'; 
-@import './layout/_mainmenu'; 
-@import './layout/_banner'; 
-@import './layout/_search'; 
-@import './layout/_galleryBar'; 
-@import './layout/_footer'; 
+@import './layout/_nav';
+@import './layout/_mainmenu';
+@import './layout/_banner';
+@import './layout/_search';
+@import './layout/_galleryBar';
+@import './layout/_footer';
 
 /**** Pages ****/
-@import './pages/_login'; 
+@import './pages/_login';

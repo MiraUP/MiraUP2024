@@ -1,28 +1,59 @@
 // Animation Basic
 @mixin anima-basic {
-  @include prefix(transition, all 300ms cubic-bezier(0.800, 0.000, 0.200, 1.000), moz webkit ms o);
-  @include prefix(transition-timing-function, cubic-bezier(0.800, 0.000, 0.200, 1.000), moz webkit ms o);
+  @include prefix(
+    transition,
+    all 300ms cubic-bezier(0.8, 0, 0.2, 1),
+    moz webkit ms o
+  );
+  @include prefix(
+    transition-timing-function,
+    cubic-bezier(0.8, 0, 0.2, 1),
+    moz webkit ms o
+  );
 }
 
 // Time Animation
 @mixin anima-($secund) {
-  @include prefix(transition, all $secund cubic-bezier(0.800, 0.000, 0.200, 1.000), moz webkit ms o);
-  @include prefix(transition-timing-function, cubic-bezier(0.800, 0.000, 0.200, 1.000), moz webkit ms o);
+  @include prefix(
+    transition,
+    all $secund cubic-bezier(0.8, 0, 0.2, 1),
+    moz webkit ms o
+  );
+  @include prefix(
+    transition-timing-function,
+    cubic-bezier(0.8, 0, 0.2, 1),
+    moz webkit ms o
+  );
 }
 
 // Propriety Animation
 @mixin anima-propriety-($propriety) {
-  @include prefix(transition, $propriety 300ms cubic-bezier(0.800, 0.000, 0.200, 1.000), moz webkit ms o);
-  @include prefix(transition-timing-function, cubic-bezier(0.800, 0.000, 0.200, 1.000), moz webkit ms o);
+  @include prefix(
+    transition,
+    $propriety 300ms cubic-bezier(0.8, 0, 0.2, 1),
+    moz webkit ms o
+  );
+  @include prefix(
+    transition-timing-function,
+    cubic-bezier(0.8, 0, 0.2, 1),
+    moz webkit ms o
+  );
 }
 
 // Animation Float
 @mixin anima-float {
-  @include prefix(animation, float 5000ms cubic-bezier(0.800, 0.000, 0.200, 1.000) infinite, moz webkit ms o);
-  @include prefix(transition-timing-function, cubic-bezier(0.800, 0.000, 0.200, 1.000), moz webkit ms o);
+  @include prefix(
+    animation,
+    float 5000ms cubic-bezier(0.8, 0, 0.2, 1) infinite,
+    moz webkit ms o
+  );
+  @include prefix(
+    transition-timing-function,
+    cubic-bezier(0.8, 0, 0.2, 1),
+    moz webkit ms o
+  );
 
   @keyframes float {
-
     0% {
       @include prefix(transform, translatey(0px), moz webkit ms o);
     }
@@ -67,7 +98,7 @@
 @mixin anima-fade-left {
   @include prefix(transform, translateX(-2rem), moz webkit ms o);
   opacity: 0;
-  animation: animaFadeLeft .5s forwards;
+  animation: animaFadeLeft 0.5s forwards;
 
   @keyframes animaFadeLeft {
     to {
@@ -80,10 +111,24 @@
   @include anima-fade-left;
 }
 
+@mixin anima-fadein {
+  opacity: 0;
+  animation: animaFadein 0.5s forwards;
+
+  @keyframes animaFadein {
+    to {
+      opacity: initial;
+    }
+  }
+}
+.anima-fadein {
+  @include anima-fadein;
+}
+
 @mixin anima-fade-right {
   @include prefix(transform, translateX(2rem), moz webkit ms o);
   opacity: 0;
-  animation: animaFadeRight .5s forwards;
+  animation: animaFadeRight 0.5s forwards;
 
   @keyframes animaFadeRight {
     to {
@@ -99,7 +144,7 @@
 @mixin anima-fade-top {
   @include prefix(transform, translateY(-2rem), moz webkit ms o);
   opacity: 0;
-  animation: animaFadeTop .5s forwards;
+  animation: animaFadeTop 0.5s forwards;
 
   @keyframes animaFadeTop {
     to {
@@ -115,7 +160,7 @@
 @mixin anima-fade-bottom {
   @include prefix(transform, translateY(2rem), moz webkit ms o);
   opacity: 0;
-  animation: animaFadeBottom .5s forwards;
+  animation: animaFadeBottom 0.5s forwards;
 
   @keyframes animaFadeBottom {
     to {
@@ -229,13 +274,12 @@
 
 // Animation Badge
 @mixin anima-badge {
-
   animation: alert 1s ease infinite;
 
   @keyframes alert {
     0% {
-      @include prefix(transform, scale(.1), moz webkit ms o);
-      opacity: .7;
+      @include prefix(transform, scale(0.1), moz webkit ms o);
+      opacity: 0.7;
     }
 
     100% {

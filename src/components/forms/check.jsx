@@ -38,7 +38,7 @@ const Check = ({ value, setValue, Options, id, className }) => {
 };
 
 Check.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.array,
   setValue: PropTypes.func,
   Options: PropTypes.array,
   id: PropTypes.string,

@@ -5,8 +5,10 @@ import Smilles from '../../components/smilles';
 import Typography from '../../components/typography';
 import Icon from '../../components/icon';
 import Tooltip from '../../components/tooltip';
+import { UserContext } from '../../hooks/userContext';
 
 const OffcanvasProfile = () => {
+  const { data, userLogout } = React.useContext(UserContext);
   return (
     <div
       className="offcanvas offcanvas-end"
@@ -14,7 +16,7 @@ const OffcanvasProfile = () => {
       id="offcanvasProfile"
       aria-labelledby="offcanvasProfileLabel"
     >
-      <Offcanvas Header Short="Profile" Title="Olá, Fulano" />
+      <Offcanvas Header Short="Profile" Title={data && `Olá, ${data.name}`} />
 
       <Offcanvas Body>
         <div className="text-center">
@@ -35,7 +37,11 @@ const OffcanvasProfile = () => {
           <div style={{ marginTop: '20px' }}>
             <Tooltip Title="Click para editar seu email" Offset="0, 13">
               <Typography Component="a" className="link" href="#">
-                email@email.com <Icon IconName="edit" />
+                {data && (
+                  <>
+                    {data.email} <Icon IconName="edit" />
+                  </>
+                )}
               </Typography>
             </Tooltip>
           </div>
@@ -132,6 +138,7 @@ const OffcanvasProfile = () => {
           Icon="out"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
+          onClick={userLogout}
         >
           Fazer logout
         </Button>

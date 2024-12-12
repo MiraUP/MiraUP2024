@@ -36,7 +36,7 @@ export const StepperSection = ({
         transform: `translateX(${translateX}00%)`,
       }}
     >
-      {children}
+      <div style={{ padding: '0 25px' }}>{children}</div>
       {btnBack != 'none' && btnNext != 'none' && (
         <hr className="hr-gradient-center" />
       )}

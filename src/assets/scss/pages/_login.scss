@@ -1,5 +1,4 @@
 .page-login {
-
   .icon-arrow-left {
     display: block;
     cursor: pointer;
@@ -8,7 +7,7 @@
 
     &:hover {
       @include prefix(transform, translateX(-8px), moz webkit ms o);
-      color:  var(--bs-cyan);
+      color: var(--bs-cyan);
     }
   }
 
@@ -20,15 +19,15 @@
     @include anima-basic;
 
     .section-create {
-
       .section-group {
         height: px(365);
         position: relative;
         overflow: hidden;
       }
 
-
-      .section1, .section2, .section3 {
+      .section1,
+      .section2,
+      .section3 {
         width: 100%;
         position: absolute;
         opacity: 0;
@@ -44,8 +43,9 @@
       position: relative;
       border: none;
 
-      &::before, &::after {
-        content:'';
+      &::before,
+      &::after {
+        content: '';
         position: absolute;
         display: block;
         background: var(--bs-cyan);
@@ -75,7 +75,7 @@
       .btn {
         font-size: px(16);
         position: relative;
-        color:rgba($white, .5);
+        color: rgba($white, 0.5);
         border: none;
         height: px(108);
         background: none;
@@ -90,9 +90,9 @@
           align-content: center;
           @include anima-basic;
         }
-      
+
         &.active {
-          color:rgba($white, 1);
+          color: rgba($white, 1);
           @include anima-basic;
 
           span {
@@ -102,16 +102,19 @@
         }
 
         &:hover {
-          color:rgba(var(--bs-white), 1);
+          color: rgba(var(--bs-white), 1);
         }
 
         &:first-child {
-          
           &::after {
-            content:'';
+            content: '';
             position: absolute;
             display: block;
-            background: linear-gradient(180deg, rgba(72, 218, 250, 0) 20%, rgba(72, 218, 250, 0.6) 100%);;
+            background: linear-gradient(
+              180deg,
+              rgba(72, 218, 250, 0) 20%,
+              rgba(72, 218, 250, 0.6) 100%
+            );
             width: px(2);
             top: px(50);
             bottom: px(2);
@@ -121,14 +124,17 @@
       }
     }
 
-    .form-floating{
-      
+    .tab-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-floating {
       label {
-        padding:px(25);
+        padding: px(25);
       }
 
       .form {
-
         &-control {
           padding: px(30) px(25) !important;
           height: auto;
@@ -137,22 +143,23 @@
           &:focus {
             padding: px(40) px(25) px(20) px(25) !important;
             @include prefix(box-shadow, none, moz webkit ms o);
-      
-            &~label {
+
+            & ~ label {
               color: inherit !important;
-              opacity: .3;
-      
+              opacity: 0.3;
+
               &::after {
                 background-color: transparent !important;
               }
             }
           }
         }
-      } 
+      }
     }
 
-    &::after, &::before {
-      content:'';
+    &::after,
+    &::before {
+      content: '';
       position: absolute;
       display: block;
       background: var(--bs-green);
@@ -162,14 +169,14 @@
       width: px(50);
       height: px(50);
       top: px(-25);
-      left:px(-25);
+      left: px(-25);
     }
 
     &::before {
       width: px(30);
       height: px(30);
       right: px(-15);
-      bottom:px(-15);
+      bottom: px(-15);
     }
 
     .link {
@@ -183,7 +190,6 @@
     }
 
     .btn {
-
       &-submit {
         font-size: px(20);
         padding: px(33);
@@ -198,5 +204,63 @@
 
   .create-style {
     background: $violet;
+  }
+
+  .mask-loading {
+    position: absolute;
+    top: px(-108);
+    height: px(448);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: wait;
+    background: var(--blue);
+    opacity: 0.8;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: var(--green);
+      width: px(52);
+      height: px(52);
+      left: px(-26);
+      top: px(-26);
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      background: var(--green);
+      width: px(32);
+      height: px(32);
+      right: px(-16);
+      bottom: px(-16);
+    }
+  }
+}
+
+.logged-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: px(50) 0 px(30) 0;
+  width: 100%;
+  height: px(340);
+
+  .btn {
+    text-align: center;
+    width: px(150);
+    padding: px(5) 0 !important;
   }
 }

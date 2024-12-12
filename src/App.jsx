@@ -5,8 +5,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SinglePage from './theme/single';
 import PageLogin from './pages/login/page-login';
 import { UserStorage } from './hooks/userContext';
+import { UserContext } from './hooks/userContext';
 
 const App = () => {
+  const { login } = React.useContext(UserContext);
+
   return (
     <BrowserRouter>
       <UserStorage>

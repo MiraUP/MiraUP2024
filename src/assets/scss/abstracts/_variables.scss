@@ -1,0 +1,50 @@
+/*** 
+  Color Pallets */
+
+//Primary colors
+$blue: #3742f9;
+$cyan: #48dafa;
+$violet: #6610f2;
+$green: #1abb9b;
+$orange: #f4a003;
+$red: #ba3a31;
+$black: #354050;
+$white: #dfe0e4;
+
+//Colors
+$colors: (
+  'blue': $blue,
+  'cyan': $cyan,
+  'violet': $violet,
+  'green': $green,
+  'orange': $orange,
+  'red': $red,
+  'black': $black,
+  'white': $white,
+);
+
+//Brightness Colors
+$brightness: (
+  '100': '10%',
+  '200': '20%',
+  '300': '30%',
+  '400': '40%',
+  '500': '50%',
+  '600': '60%',
+  '700': '70%',
+  '800': '80%',
+  '900': '90%',
+);
+
+//Gradients
+$gradients: (
+  'left': '-90deg',
+  'right': '90deg',
+  'top': '180deg',
+  'bottom': '-180deg',
+);
+
+//Paths
+$iconPath: 'src/assets/img/icon/';
+$graphicPath: 'src/assets/img/graphic/';
+$smillePath: 'src/assets/img/smilles/';
