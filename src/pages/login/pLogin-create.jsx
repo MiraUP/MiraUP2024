@@ -1,9 +1,14 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { USER_POST } from '../../api/api';
+import { UserContext } from '../../hooks/userContext';
 import useForm from '../../hooks/useForm';
-import Input from '../../components/forms/input';
 import { Stepper, StepperSection } from '../../components/Stepper';
 import InputField from '../../components/forms/inputfield';
+import useFetch from '../../hooks/useFetch';
+import Error from '../../helper/error';
+import Icons from '../../components/icon';
+import Typography from '../../components/typography';
 
 const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
   const [stepper, setStepper] = React.useState('create-user-stepper-1');
@@ -21,7 +26,10 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
   const inputPassword = document.getElementById('password-create');
   const inputPasswordRepeat = document.getElementById('password-repeat-create');
 
-  function handleSubmit(event) {
+  const { userLogin } = React.useContext(UserContext);
+  const { loading, error, request } = useFetch();
+
+  async function handleSubmit(event) {
     event.preventDefault();
 
     if (stepper === 'create-user-stepper-1') {
@@ -47,7 +55,17 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
         inputPassword.focus();
       } else {
         if (inputPassword.value === inputPasswordRepeat.value) {
-          setStepper('create-user-stepper-4');
+          const { url, options } = USER_POST({
+            displayname: nameCreate.value,
+            username: userCreate.value,
+            email: emailCreate.value,
+            password: passwordCreate.value,
+          });
+          const { response } = await request(url, options);
+          if (response.ok) {
+            userLogin(userCreate.value, passwordCreate.value);
+            //setStepper('create-user-stepper-4');
+          }
         } else {
           inputPassword.focus();
           //setError('Senhas diferentes');
@@ -57,7 +75,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
   }
 
   return (
-    <div
+    <section
       className={
         location.pathname === '/login/criar-conta'
           ? 'tab-pane anima-fade-right show active'
@@ -84,7 +102,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
               autoComplete="name"
               icon="smile"
               iconSize={1.5}
-              height="47.5"
+              height="49"
               {...nameCreate}
             />
 
@@ -95,7 +113,7 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
               autoComplete="username"
               icon="user"
               iconSize={1.5}
-              height="47.5"
+              height="49"
               {...userCreate}
             />
           </StepperSection>
@@ -106,13 +124,14 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
             name="create-user"
             order={2}
           >
-            <Input
-              type="text"
-              style={{ margin: '94px 0' }}
-              placeholder="Informe um e-mail *"
-              icon="email"
+            <InputField
               id="email-create"
+              type="email"
+              label="Informe um e-mail *"
               autoComplete="email"
+              icon="email"
+              iconSize={1.5}
+              height="109.5"
               {...emailCreate}
             />
           </StepperSection>
@@ -124,25 +143,24 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
             btnNext="Cadastrar"
             order={3}
           >
-            <Input
-              type="password"
-              style={{ margin: '26.5px 0', position: 'relative' }}
-              placeholder="Informe uma senha *"
-              icon="lock"
+            <InputField
               id="password-create"
-              //autoComplete="password"
+              type="password"
+              label="Informe uma senha *"
+              autoComplete="password"
+              icon="lock"
+              iconSize={1.5}
+              height="49"
               {...passwordCreate}
             />
-
-            <hr className="hr-gradient-right" />
-
-            <Input
-              type="password"
-              style={{ margin: '26.5px 0', position: 'relative' }}
-              placeholder="Repita a senha *"
-              icon="lock"
+            <InputField
               id="password-repeat-create"
-              //autoComplete="password"
+              type="password"
+              label="Repita a senha *"
+              autoComplete="password"
+              icon="lock"
+              iconSize={1.5}
+              height="49"
               {...passwordRepeatCreate}
             />
           </StepperSection>
@@ -159,8 +177,24 @@ const PageLoginCreate = ({ LoginCreate, SetLoginCreate }) => {
             Mensagem de sucesso!
           </StepperSection>
         </Stepper>
+        {loading && (
+          <div className="mask-loading">
+            <Icons
+              IconName="time-capsule"
+              Animate
+              Color="#fff"
+              Trigger="loop"
+              style={{ height: '100px', width: '100px', marginBottom: '10px' }}
+              stroke={50}
+            />
+            <Typography Component="h3" className="h5">
+              Criando seu usuário...
+            </Typography>
+          </div>
+        )}
+        <Error error={error} />
       </form>
-    </div>
+    </section>
   );
 };
 

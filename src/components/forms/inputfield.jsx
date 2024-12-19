@@ -15,6 +15,7 @@ const InputField = ({
   onBlur,
   icon,
   iconSize,
+  iconPosition,
   height,
   autoComplete,
   props,
@@ -23,14 +24,18 @@ const InputField = ({
 
   let errorClass;
   let nameType;
+  let iconPositionClass;
   className === undefined ? (className = '') : (className = ' ' + className);
   errorMessage === undefined
     ? (errorClass = '')
     : (errorClass = ' input-field-error');
+  iconPosition === undefined
+    ? (iconPositionClass = '')
+    : (iconPositionClass = ' icon-' + iconPosition);
+
   if (type === 'password') {
     btnAction === false ? (nameType = 'password') : (nameType = 'text');
   }
-
   function errorValidateMessage() {
     if (
       error &&
@@ -83,11 +88,11 @@ const InputField = ({
 
   return (
     <div
-      className={'input-field' + className + errorClass}
+      className={'input-field' + className + errorClass + iconPositionClass}
       style={style === undefined ? {} : style}
     >
       <label className="input" htmlFor={id}>
-        {icon != undefined && (
+        {icon != undefined && iconPosition != 'right' && (
           <Icons IconName={icon} Size={iconSize} className="input-field-icon" />
         )}
         <input
@@ -102,7 +107,16 @@ const InputField = ({
           style={height != undefined ? { padding: `${height}px 0` } : {}}
           {...props}
         />
-        <span className="input-field-label">
+        <span
+          className="input-field-label"
+          style={
+            iconPosition === 'right'
+              ? { left: '0' }
+              : icon === undefined
+              ? { left: '0' }
+              : {}
+          }
+        >
           {label === undefined ? 'Informe um placeholder' : label}
         </span>
         {type === 'password' && (
@@ -114,6 +128,16 @@ const InputField = ({
             onClick={() => setBtnAction(!btnAction)}
           />
         )}
+
+        {icon != undefined &&
+          iconPosition === 'right' &&
+          type != 'password' && (
+            <Icons
+              IconName={icon}
+              Size={iconSize}
+              className="input-field-icon"
+            />
+          )}
       </label>
       <span className="">
         {helperText != undefined && <p className="helper-text">{helperText}</p>}

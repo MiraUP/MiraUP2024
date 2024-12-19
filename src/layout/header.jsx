@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Brand from '../components/brand';
 import Icon from '../components/icon';
 import Smilles from '../components/smilles';
@@ -8,8 +9,9 @@ import OffcanvasProfile from '../pages/search/pSearch-offcanvasProfile';
 import DropdownNotification from './dropdownNotification';
 import Button from '../components/button';
 
-const Header = () => {
+const Header = ({ noMenu, ...props }) => {
   const [mainMenu, setMainMenu] = React.useState(false);
+  const location = useLocation();
   const [stickyMenu, setStickyMenu] = React.useState(false);
 
   React.useEffect(() => {
@@ -34,11 +36,11 @@ const Header = () => {
   return (
     <>
       <OffcanvasProfile />
-      <header className="anima-fade-left nav-primary fixed-top">
+      <header className="anima-fade-left nav-primary fixed-top" {...props}>
         <div className="container">
           <div className="row header">
             <div className="col-auto me-auto logo">
-              <a className="align-self-center">
+              <Link to="/" className="align-self-center">
                 <Brand
                   Version="Signature"
                   className="logo-ass-white"
@@ -49,21 +51,26 @@ const Header = () => {
                   className="logo-extend-white"
                   style={{ width: '128px' }}
                 />
-              </a>
-              <a className="d-sm-block d-none btn-backHome align-self-center">
-                <Tooltip
-                  Title="Voltar para a página inicial"
-                  Placement="bottom"
-                  Offset="0, 10"
+              </Link>
+              {location.pathname != '/' && (
+                <Link
+                  to="/"
+                  className="d-sm-block d-none btn-backHome align-self-center"
                 >
-                  <Icon
-                    IconName="home"
-                    Animate
-                    Trigger="hover"
-                    style={{ width: '40px', height: '40px' }}
-                  />
-                </Tooltip>
-              </a>
+                  <Tooltip
+                    Title="Voltar para a página inicial"
+                    Placement="bottom"
+                    Offset="0, 10"
+                  >
+                    <Icon
+                      IconName="home"
+                      Animate
+                      Trigger="hover"
+                      style={{ width: '40px', height: '40px' }}
+                    />
+                  </Tooltip>
+                </Link>
+              )}
               <button
                 className="menu-burger d-sm-block d-none"
                 onClick={() => setMainMenu(!mainMenu)}
@@ -74,11 +81,13 @@ const Header = () => {
             <div className="col-auto">
               <div className="row">
                 <div className="col align-self-center d-sm-block d-none">
-                  <Tooltip Title="Ver os favoritos" Offset="0, 5">
-                    <Button Component="a" className="button-heart d-block">
-                      <label></label>
-                    </Button>
-                  </Tooltip>
+                  <Button
+                    Component="a"
+                    href="/favoritos"
+                    className="button-heart d-block"
+                  >
+                    <label></label>
+                  </Button>
                 </div>
                 <div className="col align-self-center d-sm-block d-none">
                   <button
@@ -115,14 +124,19 @@ const Header = () => {
                   </Tooltip>
                 </div>
                 <div className="col align-self-center d-sm-none d-block">
-                  <button className="menu-burger"></button>
+                  <button
+                    className="menu-burger"
+                    onClick={() => setMainMenu(!mainMenu)}
+                    data-bs-toggle="modal"
+                    data-bs-target="#mainMenu"
+                  ></button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </header>
-      <MainMenu />
+      {noMenu != undefined ? '' : <MainMenu />}
     </>
   );
 };

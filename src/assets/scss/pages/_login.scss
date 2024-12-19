@@ -11,11 +11,19 @@
     }
   }
 
+  .login-brand {
+    svg {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
   .login-form {
     position: relative;
     background: var(--bs-blue);
     width: calc(100% - px(40));
     margin: px(50) 0 px(75) 0;
+    @include shadow-basic(60px, bottom);
     @include anima-basic;
 
     .section-create {

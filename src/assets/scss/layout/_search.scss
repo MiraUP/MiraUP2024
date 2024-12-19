@@ -3,6 +3,13 @@
   z-index: 1;
   @include prefix(transform, translateY(-50%), moz webkit ms o);
 
+  &.focused {
+    .search-main-box {
+      width: calc(100% + px(24));
+      margin-left: px(-12);
+    }
+  }
+
   &-box {
     position: relative;
     width: calc(100% - px(200));
@@ -10,6 +17,7 @@
     padding: 0 34px;
     @include prefix(backdrop-filter, blur(5px), moz webkit ms o);
     @include shadow-basic(64px, bottom);
+    @include anima-basic;
 
     @include media-breakpoint-down(xl) {
       width: calc(100% - px(50));
@@ -17,7 +25,6 @@
     }
 
     @include media-breakpoint-down(lg) {
-
       .mockup,
       .presentation {
         display: none;
@@ -54,7 +61,7 @@
       bottom: 0;
       left: 0;
       background: var(--bs-black);
-      opacity: .65;
+      opacity: 0.65;
     }
 
     .search-main-filter {
@@ -71,12 +78,12 @@
         background: var(--bs-white);
         width: 100%;
         height: px(1);
-        opacity: .3;
+        opacity: 0.3;
         bottom: 0;
       }
 
       &.btns-disabled {
-        opacity: .1;
+        opacity: 0.1;
 
         &::before {
           content: '';
@@ -95,10 +102,8 @@
       }
 
       .btn-check {
-
         &:checked {
-
-          &+.btn {
+          & + .btn {
             color: var(--bs-white);
             opacity: 1;
             border: none;
@@ -118,7 +123,7 @@
           position: relative;
           padding: 34px 20px;
           color: var(--bs-white);
-          opacity: .5;
+          opacity: 0.5;
           width: 100%;
           white-space: nowrap;
           margin: 0 !important;
@@ -159,9 +164,7 @@
     }
 
     form {
-
       .form-floating {
-
         .form-control {
           background: none;
           border: none;
@@ -176,14 +179,17 @@
 
           &:focus,
           &:not(:placeholder-shown) {
-
-            &~label {
-              @include prefix(transform, scale(.45) translateY(0rem) translateX(1rem), moz webkit ms o);
+            & ~ label {
+              @include prefix(
+                transform,
+                scale(0.45) translateY(0rem) translateX(1rem),
+                moz webkit ms o
+              );
             }
           }
         }
 
-        >label {
+        > label {
           @include fontTitle;
           font-size: px(32);
           color: var(--bs-white);
@@ -202,8 +208,8 @@
     }
   }
 
-  label[for=search-main] {
-    color:var(--bs-white)1 !important;
+  label[for='search-main'] {
+    color: var(--bs-white) 1 !important;
 
     &::after {
       display: none;
@@ -225,13 +231,13 @@
 
 .button-search {
   position: relative;
-  
+
   .fade-in {
     opacity: 1;
     transform: scale(1);
     @include anima-basic;
   }
-    
+
   .fade-out {
     opacity: 0;
     transform: scale(0);

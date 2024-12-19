@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '../../components/typography';
 import Icon from '../../components/icon';
 import Tooltip from '../../components/tooltip';
+import { UserContext } from '../../hooks/userContext';
 
 const galleryItem = [
   {
@@ -42,17 +43,16 @@ const galleryItem = [
 ];
 
 const GaleryMain = () => {
-  const [produtos, setProdutos] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch('https://ranekapi.origamid.dev/json/api/produto/')
-      .then((r) => r.json())
-      .then((json) => setProdutos(json));
-  }, []);
-  console.log(produtos);
+  const { searchFocused } = React.useContext(UserContext);
 
   return (
-    <section className="anima-fade-left container gallery-main">
+    <section
+      className={
+        searchFocused === true
+          ? 'anima-fade-left container gallery-main focused'
+          : 'anima-fade-left container gallery-main'
+      }
+    >
       <div className="row">
         <div id="gallery-list" className="col-12 gallery-list">
           {galleryItem.map(

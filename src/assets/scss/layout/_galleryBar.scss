@@ -1,7 +1,11 @@
 .gallery-bar {
+  @include anima-basic;
+
+  &.focused {
+    margin-top: px(-80);
+  }
 
   .col-md-auto {
-
     @include media-breakpoint-down(md) {
       order: 1;
       text-align: center;
@@ -17,7 +21,6 @@
     }
 
     .dropdown-menu-dark {
-
       .icon {
         margin-left: px(25);
 
@@ -29,7 +32,6 @@
     }
 
     &.me-auto {
-
       @include media-breakpoint-down(md) {
         order: 2 !important;
         margin-top: px(20);

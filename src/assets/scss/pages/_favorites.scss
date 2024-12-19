@@ -1,0 +1,49 @@
+.page-favorites {
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    max-width: px(925);
+    height: px(352);
+    background: url('#{$graphicPath}gradient.png') top center no-repeat;
+    background-size: 100% 100%;
+    z-index: -1;
+    @include prefix(transform, translateX(-30%), moz webkit ms o);
+    @include anima-basic;
+  }
+
+  .fixed-top {
+    display: none !important;
+  }
+
+  @include media-breakpoint-down(sm) {
+    #asideMenu {
+      display: none !important;
+    }
+
+    .fixed-top {
+      display: block !important;
+      position: fixed !important;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &-menu {
+    .col-lg-4 {
+      width: 50%;
+
+      &:nth-child(1) {
+        display: none !important;
+      }
+      &:nth-child(2) {
+        &::before {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,89 @@ $green: #1abb9b;
 $orange: #f4a003;
 $red: #ba3a31;
 $black: #354050;
+$black-darken: darken($black, 50%);
 $white: #dfe0e4;
+
+//Variables Colors
+$blue-100: darken($blue, 20%);
+$blue-200: darken($blue, 15%);
+$blue-300: darken($blue, 10%);
+$blue-400: darken($blue, 5%);
+$blue-500: $blue;
+$blue-600: lighten($blue, 5%);
+$blue-700: lighten($blue, 10%);
+$blue-800: lighten($blue, 15%);
+$blue-900: lighten($blue, 20%);
+
+$cyan-100: darken($cyan, 20%);
+$cyan-200: darken($cyan, 15%);
+$cyan-300: darken($cyan, 10%);
+$cyan-400: darken($cyan, 5%);
+$cyan-500: $cyan;
+$cyan-600: lighten($cyan, 5%);
+$cyan-700: lighten($cyan, 10%);
+$cyan-800: lighten($cyan, 15%);
+$cyan-900: lighten($cyan, 20%);
+
+$violet-100: darken($violet, 20%);
+$violet-200: darken($violet, 15%);
+$violet-300: darken($violet, 10%);
+$violet-400: darken($violet, 5%);
+$violet-500: $violet;
+$violet-600: lighten($violet, 5%);
+$violet-700: lighten($violet, 10%);
+$violet-800: lighten($violet, 15%);
+$violet-900: lighten($violet, 20%);
+
+$green-100: darken($green, 20%);
+$green-200: darken($green, 15%);
+$green-300: darken($green, 10%);
+$green-400: darken($green, 5%);
+$green-500: $green;
+$green-600: lighten($green, 5%);
+$green-700: lighten($green, 10%);
+$green-800: lighten($green, 15%);
+$green-900: lighten($green, 20%);
+
+$orange-100: darken($orange, 20%);
+$orange-200: darken($orange, 15%);
+$orange-300: darken($orange, 10%);
+$orange-400: darken($orange, 5%);
+$orange-500: $orange;
+$orange-600: lighten($orange, 5%);
+$orange-700: lighten($orange, 10%);
+$orange-800: lighten($orange, 15%);
+$orange-900: lighten($orange, 20%);
+
+$red-100: darken($red, 20%);
+$red-200: darken($red, 15%);
+$red-300: darken($red, 10%);
+$red-400: darken($red, 5%);
+$red-500: $red;
+$red-600: lighten($red, 5%);
+$red-700: lighten($red, 10%);
+$red-800: lighten($red, 15%);
+$red-900: lighten($red, 20%);
+
+$black-100: darken($black, 20%);
+$black-200: darken($black, 15%);
+$black-300: darken($black, 10%);
+$black-400: darken($black, 5%);
+$black-500: $black;
+$black-600: lighten($black, 5%);
+$black-700: lighten($black, 10%);
+$black-800: lighten($black, 15%);
+$black-900: lighten($black, 20%);
+
+$white-100: darken($white, 20%);
+$white-200: darken($white, 15%);
+$white-300: darken($white, 10%);
+$white-400: darken($white, 5%);
+$white-500: $white;
+$white-600: lighten($white, 5%);
+$white-700: lighten($white, 10%);
+$white-800: lighten($white, 15%);
+$white-900: lighten($white, 20%);
 
 //Colors
 $colors: (
@@ -21,19 +103,86 @@ $colors: (
   'red': $red,
   'black': $black,
   'white': $white,
-);
 
-//Brightness Colors
-$brightness: (
-  '100': '10%',
-  '200': '20%',
-  '300': '30%',
-  '400': '40%',
-  '500': '50%',
-  '600': '60%',
-  '700': '70%',
-  '800': '80%',
-  '900': '90%',
+  'blue-100': $blue-100,
+  'blue-200': $blue-200,
+  'blue-300': $blue-300,
+  'blue-400': $blue-400,
+  'blue-500': $blue-500,
+  'blue-600': $blue-600,
+  'blue-700': $blue-700,
+  'blue-800': $blue-800,
+  'blue-900': $blue-900,
+
+  'cyan-100': $cyan-100,
+  'cyan-200': $cyan-200,
+  'cyan-300': $cyan-300,
+  'cyan-400': $cyan-400,
+  'cyan-500': $cyan-500,
+  'cyan-600': $cyan-600,
+  'cyan-700': $cyan-700,
+  'cyan-800': $cyan-800,
+  'cyan-900': $cyan-900,
+
+  'violet-100': $violet-100,
+  'violet-200': $violet-200,
+  'violet-300': $violet-300,
+  'violet-400': $violet-400,
+  'violet-500': $violet-500,
+  'violet-600': $violet-600,
+  'violet-700': $violet-700,
+  'violet-800': $violet-800,
+  'violet-900': $violet-900,
+
+  'green-100': $green-100,
+  'green-200': $green-200,
+  'green-300': $green-300,
+  'green-400': $green-400,
+  'green-500': $green-500,
+  'green-600': $green-600,
+  'green-700': $green-700,
+  'green-800': $green-800,
+  'green-900': $green-900,
+
+  'orange-100': $orange-100,
+  'orange-200': $orange-200,
+  'orange-300': $orange-300,
+  'orange-400': $orange-400,
+  'orange-500': $orange-500,
+  'orange-600': $orange-600,
+  'orange-700': $orange-700,
+  'orange-800': $orange-800,
+  'orange-900': $orange-900,
+
+  'red-100': $red-100,
+  'red-200': $red-200,
+  'red-300': $red-300,
+  'red-400': $red-400,
+  'red-500': $red-500,
+  'red-600': $red-600,
+  'red-700': $red-700,
+  'red-800': $red-800,
+  'red-900': $red-900,
+
+  'black-100': $black-100,
+  'black-200': $black-200,
+  'black-300': $black-300,
+  'black-400': $black-400,
+  'black-500': $black-500,
+  'black-600': $black-600,
+  'black-700': $black-700,
+  'black-800': $black-800,
+  'black-900': $black-900,
+
+  'white-100': $white-100,
+  'white-200': $white-200,
+  'white-300': $white-300,
+  'white-400': $white-400,
+  'white-500': $white-500,
+  'white-600': $white-600,
+  'white-700': $white-700,
+  'white-800': $white-800,
+  'white-900': $white-900,
 );
 
 //Gradients
@@ -48,3 +197,411 @@ $gradients: (
 $iconPath: 'src/assets/img/icon/';
 $graphicPath: 'src/assets/img/graphic/';
 $smillePath: 'src/assets/img/smilles/';
+
+//Icons
+$icomoon-font-family: 'Miraup Icon' !default;
+$icomoon-font-path: 'fonts' !default;
+
+$icon-3d: unquote('"\\ea66"');
+$icon-ae: unquote('"\\ea53"');
+$icon-ai: unquote('"\\ea62"');
+$icon-airplay: unquote('"\\e900"');
+$icon-android: unquote('"\\e901"');
+$icon-apple: unquote('"\\e902"');
+$icon-apple-01: unquote('"\\e903"');
+$icon-archive: unquote('"\\e904"');
+$icon-arrow-circling: unquote('"\\ea67"');
+$icon-arrow-down: unquote('"\\e905"');
+$icon-arrow-down-simple: unquote('"\\e906"');
+$icon-arrow-down-square: unquote('"\\e907"');
+$icon-arrow-fullscreen: unquote('"\\ea68"');
+$icon-arrow-infinite: unquote('"\\ea69"');
+$icon-arrow-left: unquote('"\\e908"');
+$icon-arrow-left-simple: unquote('"\\e909"');
+$icon-arrow-left-square: unquote('"\\e90a"');
+$icon-arrow-response: unquote('"\\ea6a"');
+$icon-arrow-right: unquote('"\\e90b"');
+$icon-arrow-right-simple: unquote('"\\e90c"');
+$icon-arrow-right-square: unquote('"\\e90d"');
+$icon-arrow-sync: unquote('"\\ea6b"');
+$icon-arrow-up: unquote('"\\e90e"');
+$icon-arrow-up-down: unquote('"\\e90f"');
+$icon-arrow-up-simple: unquote('"\\e910"');
+$icon-arrow-up-square: unquote('"\\e911"');
+$icon-at: unquote('"\\e912"');
+$icon-atm: unquote('"\\e913"');
+$icon-avocado: unquote('"\\e914"');
+$icon-backward: unquote('"\\e915"');
+$icon-backward-15-sec: unquote('"\\e916"');
+$icon-badge-discount: unquote('"\\e917"');
+$icon-balance: unquote('"\\e918"');
+$icon-bank: unquote('"\\e919"');
+$icon-bank-note: unquote('"\\e91a"');
+$icon-bar-01-average: unquote('"\\e91b"');
+$icon-bar-01-down: unquote('"\\e91c"');
+$icon-bar-01-up: unquote('"\\e91d"');
+$icon-bar-02-average: unquote('"\\e91e"');
+$icon-bar-02-down: unquote('"\\e91f"');
+$icon-bar-02-up: unquote('"\\e920"');
+$icon-barcode: unquote('"\\e921"');
+$icon-baseball-ball: unquote('"\\e922"');
+$icon-basketball-ball: unquote('"\\e923"');
+$icon-basketball-hoop: unquote('"\\e924"');
+$icon-battery-100: unquote('"\\e925"');
+$icon-beaker: unquote('"\\e926"');
+$icon-behance: unquote('"\\e927"');
+$icon-bell: unquote('"\\e928"');
+$icon-blank: unquote('"\\e929"');
+$icon-blender: unquote('"\\ea54"');
+$icon-bluetooth: unquote('"\\ea6c"');
+$icon-bold: unquote('"\\ea6d"');
+$icon-book: unquote('"\\ea6e"');
+$icon-bookmark: unquote('"\\e92a"');
+$icon-bookmark-less: unquote('"\\ea6f"');
+$icon-bookmark-plus: unquote('"\\ea70"');
+$icon-bot: unquote('"\\e92b"');
+$icon-bowling-ball: unquote('"\\e92c"');
+$icon-boxes: unquote('"\\e92d"');
+$icon-briefcase: unquote('"\\e92e"');
+$icon-brightness-down: unquote('"\\e92f"');
+$icon-brightness-up: unquote('"\\e930"');
+$icon-brush: unquote('"\\e931"');
+$icon-bubble-race: unquote('"\\e932"');
+$icon-buetooth: unquote('"\\e933"');
+$icon-building: unquote('"\\e934"');
+$icon-burger: unquote('"\\e935"');
+$icon-burger-01: unquote('"\\e936"');
+$icon-cabinet-files: unquote('"\\e937"');
+$icon-calculator: unquote('"\\e938"');
+$icon-calculator-01: unquote('"\\e939"');
+$icon-calendar: unquote('"\\e93a"');
+$icon-camera: unquote('"\\e93b"');
+$icon-candlesticks: unquote('"\\e93c"');
+$icon-candlesticks-down: unquote('"\\e93d"');
+$icon-candlesticks-up: unquote('"\\e93e"');
+$icon-car: unquote('"\\ea71"');
+$icon-carrot: unquote('"\\e93f"');
+$icon-chart-bar: unquote('"\\e940"');
+$icon-check: unquote('"\\e941"');
+$icon-chip: unquote('"\\ea72"');
+$icon-cinema4d: unquote('"\\ea55"');
+$icon-circle: unquote('"\\e942"');
+$icon-circle-square: unquote('"\\e943"');
+$icon-circular-01: unquote('"\\e944"');
+$icon-circular-02: unquote('"\\e945"');
+$icon-clock: unquote('"\\e946"');
+$icon-close: unquote('"\\e947"');
+$icon-close-circle: unquote('"\\e948"');
+$icon-close-square: unquote('"\\e949"');
+$icon-coin: unquote('"\\e94a"');
+$icon-coins: unquote('"\\e94b"');
+$icon-column-01-average: unquote('"\\e94c"');
+$icon-column-01-down: unquote('"\\e94d"');
+$icon-column-01-up: unquote('"\\e94e"');
+$icon-column-02-average: unquote('"\\e94f"');
+$icon-column-02-down: unquote('"\\e950"');
+$icon-column-02-up: unquote('"\\e951"');
+$icon-column-line-down: unquote('"\\e952"');
+$icon-column-line-up: unquote('"\\e953"');
+$icon-comment: unquote('"\\e954"');
+$icon-computer-mouse: unquote('"\\e955"');
+$icon-config: unquote('"\\e956"');
+$icon-controller: unquote('"\\e957"');
+$icon-could: unquote('"\\ea73"');
+$icon-coupon-discount: unquote('"\\e958"');
+$icon-credit-card: unquote('"\\e959"');
+$icon-crop-tool: unquote('"\\e95a"');
+$icon-css3: unquote('"\\ea56"');
+$icon-cup: unquote('"\\e95b"');
+$icon-cup-01: unquote('"\\e95c"');
+$icon-cup-02: unquote('"\\e95d"');
+$icon-cup-top-go: unquote('"\\e95e"');
+$icon-current: unquote('"\\ea74"');
+$icon-darts: unquote('"\\e95f"');
+$icon-delivery-truck: unquote('"\\e960"');
+$icon-design-grid: unquote('"\\e961"');
+$icon-discount: unquote('"\\e962"');
+$icon-doc: unquote('"\\ea57"');
+$icon-donut: unquote('"\\e963"');
+$icon-doughnut: unquote('"\\e964"');
+$icon-download: unquote('"\\e965"');
+$icon-dribbble: unquote('"\\e966"');
+$icon-earphones: unquote('"\\e967"');
+$icon-edit: unquote('"\\e968"');
+$icon-eject: unquote('"\\e969"');
+$icon-electrical-plug: unquote('"\\e96a"');
+$icon-email: unquote('"\\e96b"');
+$icon-eraser: unquote('"\\e96c"');
+$icon-exit-full-screen: unquote('"\\e96d"');
+$icon-eye: unquote('"\\e96e"');
+$icon-eye-close: unquote('"\\e96f"');
+$icon-facebook: unquote('"\\e970"');
+$icon-facebook-logo: unquote('"\\ea52"');
+$icon-fast-backward: unquote('"\\e971"');
+$icon-fast-forward: unquote('"\\e972"');
+$icon-fencing: unquote('"\\e973"');
+$icon-figma: unquote('"\\e974"');
+$icon-file: unquote('"\\e975"');
+$icon-file-alert: unquote('"\\e976"');
+$icon-file-archive: unquote('"\\e977"');
+$icon-file-chart: unquote('"\\e978"');
+$icon-file-chart-line: unquote('"\\e979"');
+$icon-file-check: unquote('"\\e97a"');
+$icon-file-code: unquote('"\\e97b"');
+$icon-file-cross: unquote('"\\e97c"');
+$icon-file-document: unquote('"\\e97d"');
+$icon-file-download: unquote('"\\e97e"');
+$icon-file-erase: unquote('"\\e97f"');
+$icon-file-image: unquote('"\\e980"');
+$icon-file-minus: unquote('"\\e981"');
+$icon-file-music: unquote('"\\e982"');
+$icon-file-php: unquote('"\\ea75"');
+$icon-file-plus: unquote('"\\e983"');
+$icon-file-search: unquote('"\\e984"');
+$icon-file-star: unquote('"\\e985"');
+$icon-file-svg: unquote('"\\ea76"');
+$icon-file-table: unquote('"\\e986"');
+$icon-file-text: unquote('"\\e987"');
+$icon-file-upload: unquote('"\\e988"');
+$icon-file-video: unquote('"\\e989"');
+$icon-filter: unquote('"\\e98a"');
+$icon-flag: unquote('"\\e98b"');
+$icon-flash-drive: unquote('"\\e98c"');
+$icon-flip-chart: unquote('"\\e98d"');
+$icon-floppy-disk: unquote('"\\ea64"');
+$icon-flutter: unquote('"\\ea58"');
+$icon-folder: unquote('"\\e98e"');
+$icon-folder-document: unquote('"\\ea78"');
+$icon-folder-document-plus: unquote('"\\ea77"');
+$icon-font: unquote('"\\ea61"');
+$icon-fork-knife: unquote('"\\e98f"');
+$icon-forward: unquote('"\\e990"');
+$icon-forward-15-sec: unquote('"\\e991"');
+$icon-fottball-ball: unquote('"\\e992"');
+$icon-foursquare: unquote('"\\e993"');
+$icon-french-fries: unquote('"\\e994"');
+$icon-full-screen: unquote('"\\e995"');
+$icon-gear: unquote('"\\ea79"');
+$icon-gift: unquote('"\\e996"');
+$icon-glass: unquote('"\\e997"');
+$icon-globe: unquote('"\\e998"');
+$icon-gold: unquote('"\\e999"');
+$icon-google: unquote('"\\e99a"');
+$icon-google-logo: unquote('"\\e99b"');
+$icon-grid: unquote('"\\e99f"');
+$icon-grid-horizontal: unquote('"\\e9a0"');
+$icon-grid-vetical: unquote('"\\e9a1"');
+$icon-hand-cart: unquote('"\\e9a2"');
+$icon-hand-ok: unquote('"\\ea7a"');
+$icon-hand-sanitizer: unquote('"\\e9a3"');
+$icon-hand-shake: unquote('"\\ea7b"');
+$icon-hastag: unquote('"\\ea7c"');
+$icon-hat-chef: unquote('"\\e9a4"');
+$icon-headings: unquote('"\\ea7d"');
+$icon-heart: unquote('"\\e9a5"');
+$icon-heart-2: unquote('"\\e9a6"');
+$icon-heart-rate: unquote('"\\e9a7"');
+$icon-hockey: unquote('"\\e9a8"');
+$icon-home: unquote('"\\e9a9"');
+$icon-hospital-building: unquote('"\\e9aa"');
+$icon-hourglass: unquote('"\\e9ab"');
+$icon-html5: unquote('"\\ea59"');
+$icon-icon-cream: unquote('"\\e9ac"');
+$icon-image: unquote('"\\e9ad"');
+$icon-info: unquote('"\\e9ae"');
+$icon-insert: unquote('"\\e9af"');
+$icon-instagram: unquote('"\\e9b0"');
+$icon-intravenous-therapy: unquote('"\\e9b1"');
+$icon-italic: unquote('"\\ea7e"');
+$icon-key: unquote('"\\ea7f"');
+$icon-keyboard: unquote('"\\e9b2"');
+$icon-laptop: unquote('"\\e9b3"');
+$icon-library-album: unquote('"\\e9b4"');
+$icon-library-video: unquote('"\\e9b5"');
+$icon-light-bulb: unquote('"\\e9b6"');
+$icon-lightning: unquote('"\\e9b7"');
+$icon-line-01-down: unquote('"\\e9b8"');
+$icon-line-01-up: unquote('"\\e9b9"');
+$icon-line-02-down: unquote('"\\e9ba"');
+$icon-line-02-up: unquote('"\\e9bb"');
+$icon-line-03-down: unquote('"\\e9bc"');
+$icon-line-03-up: unquote('"\\e9bd"');
+$icon-linkedin: unquote('"\\e9be"');
+$icon-list: unquote('"\\e9bf"');
+$icon-list-bullet: unquote('"\\ea80"');
+$icon-list-number: unquote('"\\ea81"');
+$icon-loading: unquote('"\\e9c0"');
+$icon-location: unquote('"\\e9c1"');
+$icon-lock: unquote('"\\e9c2"');
+$icon-lollipop: unquote('"\\e9c3"');
+$icon-magento: unquote('"\\ea5a"');
+$icon-map: unquote('"\\e9c4"');
+$icon-map-marker: unquote('"\\e9c5"');
+$icon-medal: unquote('"\\e9c6"');
+$icon-medical-case: unquote('"\\e9c7"');
+$icon-medical-chart: unquote('"\\e9c8"');
+$icon-medical-mask: unquote('"\\e9c9"');
+$icon-medicine-bottle: unquote('"\\e9ca"');
+$icon-medicine-sanitizer: unquote('"\\e9cb"');
+$icon-megaphone: unquote('"\\e9cc"');
+$icon-messenger: unquote('"\\e9cd"');
+$icon-microchip: unquote('"\\e9ce"');
+$icon-microphone: unquote('"\\e9cf"');
+$icon-minus-1: unquote('"\\e9d0"');
+$icon-minus-2: unquote('"\\e9d1"');
+$icon-minus-square: unquote('"\\e9d2"');
+$icon-mobile: unquote('"\\e9d3"');
+$icon-modem: unquote('"\\e9d4"');
+$icon-monitor: unquote('"\\e9d5"');
+$icon-moon: unquote('"\\ea65"');
+$icon-more: unquote('"\\e9d6"');
+$icon-more-v: unquote('"\\e9d7"');
+$icon-movie: unquote('"\\e9d8"');
+$icon-music-01: unquote('"\\e9d9"');
+$icon-music-02: unquote('"\\e9da"');
+$icon-netflix: unquote('"\\e9db"');
+$icon-next: unquote('"\\e9dc"');
+$icon-none: unquote('"\\e9dd"');
+$icon-offcanvas-left-arrow-left: unquote('"\\ea82"');
+$icon-offcanvas-left-arrow-right: unquote('"\\ea83"');
+$icon-offcanvas-right-arrow-left: unquote('"\\ea84"');
+$icon-offcanvas-right-arrow-right: unquote('"\\ea85"');
+$icon-options-square: unquote('"\\e9de"');
+$icon-out: unquote('"\\e9df"');
+$icon-paint-bucket: unquote('"\\e9e0"');
+$icon-paint-roller: unquote('"\\e9e1"');
+$icon-palette: unquote('"\\e9e2"');
+$icon-pause: unquote('"\\e9e3"');
+$icon-pause-circle: unquote('"\\e9e4"');
+$icon-pear: unquote('"\\e9e5"');
+$icon-pen: unquote('"\\e9e6"');
+$icon-pencil: unquote('"\\e9e7"');
+$icon-perspective: unquote('"\\e9e8"');
+$icon-petri-dish: unquote('"\\e9e9"');
+$icon-phone: unquote('"\\e9ea"');
+$icon-picker: unquote('"\\e9eb"');
+$icon-picture-in-picture: unquote('"\\e9ec"');
+$icon-pie-01: unquote('"\\e9ed"');
+$icon-pie-02: unquote('"\\e9ee"');
+$icon-pie-03: unquote('"\\e9ef"');
+$icon-pie-04: unquote('"\\e9f0"');
+$icon-pill: unquote('"\\e9f1"');
+$icon-pinterest: unquote('"\\e9f2"');
+$icon-pizza-slice: unquote('"\\e9f3"');
+$icon-platch: unquote('"\\e9f4"');
+$icon-play: unquote('"\\e9f5"');
+$icon-play-cicle: unquote('"\\e9f6"');
+$icon-plus-1: unquote('"\\e9f7"');
+$icon-plus-2: unquote('"\\e9f8"');
+$icon-plus-square: unquote('"\\e9f9"');
+$icon-ppt: unquote('"\\ea5b"');
+$icon-previous: unquote('"\\e9fa"');
+$icon-printer: unquote('"\\e9fb"');
+$icon-product-hunt: unquote('"\\e9fc"');
+$icon-ps: unquote('"\\ea5c"');
+$icon-qrcode: unquote('"\\ea63"');
+$icon-question: unquote('"\\e9fd"');
+$icon-ray: unquote('"\\ea86"');
+$icon-react: unquote('"\\ea5d"');
+$icon-rec: unquote('"\\e9fe"');
+$icon-receipt: unquote('"\\e9ff"');
+$icon-remake: unquote('"\\ea87"');
+$icon-route: unquote('"\\ea00"');
+$icon-safe: unquote('"\\ea01"');
+$icon-salt-shaker: unquote('"\\ea02"');
+$icon-sass: unquote('"\\ea5e"');
+$icon-scale: unquote('"\\ea03"');
+$icon-scatter-down: unquote('"\\ea04"');
+$icon-scatter-up: unquote('"\\ea05"');
+$icon-scoreboard: unquote('"\\ea06"');
+$icon-search: unquote('"\\ea07"');
+$icon-serving-plate: unquote('"\\ea08"');
+$icon-settings: unquote('"\\ea09"');
+$icon-settings-01: unquote('"\\ea0a"');
+$icon-settings-02: unquote('"\\ea0b"');
+$icon-share-square: unquote('"\\ea0c"');
+$icon-shethoscope: unquote('"\\ea0d"');
+$icon-shop: unquote('"\\ea0e"');
+$icon-shopping-bag: unquote('"\\ea0f"');
+$icon-shopping-basket: unquote('"\\ea10"');
+$icon-shopping-cart: unquote('"\\ea11"');
+$icon-shopping-tag: unquote('"\\ea12"');
+$icon-shorts: unquote('"\\ea13"');
+$icon-sign-out: unquote('"\\ea14"');
+$icon-signal: unquote('"\\ea15"');
+$icon-sketch: unquote('"\\ea16"');
+$icon-slice-tool: unquote('"\\ea17"');
+$icon-smart-watch: unquote('"\\ea18"');
+$icon-smile: unquote('"\\ea19"');
+$icon-soccer-field: unquote('"\\ea1a"');
+$icon-socket: unquote('"\\ea88"');
+$icon-sort: unquote('"\\ea1b"');
+$icon-soundcloud: unquote('"\\ea1c"');
+$icon-soup: unquote('"\\ea1d"');
+$icon-speak: unquote('"\\ea8b"');
+$icon-speak-less: unquote('"\\ea89"');
+$icon-speak-plus: unquote('"\\ea8a"');
+$icon-speakers: unquote('"\\ea1e"');
+$icon-sports-flag: unquote('"\\ea1f"');
+$icon-stacked-area-down: unquote('"\\ea20"');
+$icon-stacked-area-up: unquote('"\\ea21"');
+$icon-stacked-column-01-average: unquote('"\\ea22"');
+$icon-stacked-column-01-down: unquote('"\\ea23"');
+$icon-stacked-column-01-up: unquote('"\\ea24"');
+$icon-stacked-column-02-average: unquote('"\\ea25"');
+$icon-stacked-column-02-down: unquote('"\\ea26"');
+$icon-stacked-column-02-up: unquote('"\\ea27"');
+$icon-standings: unquote('"\\ea28"');
+$icon-star: unquote('"\\ea29"');
+$icon-star-2: unquote('"\\ea2a"');
+$icon-stichy-note: unquote('"\\ea2b"');
+$icon-stop: unquote('"\\ea2c"');
+$icon-stop-circle: unquote('"\\ea2d"');
+$icon-stopwatch: unquote('"\\ea2e"');
+$icon-stretch-height: unquote('"\\ea2f"');
+$icon-stretch-width: unquote('"\\ea30"');
+$icon-subtitles: unquote('"\\ea31"');
+$icon-sun: unquote('"\\ea8c"');
+$icon-syringe: unquote('"\\ea32"');
+$icon-t-shirt: unquote('"\\ea33"');
+$icon-table: unquote('"\\ea8d"');
+$icon-table-tennis: unquote('"\\ea34"');
+$icon-tablets: unquote('"\\ea35"');
+$icon-test-tube: unquote('"\\ea36"');
+$icon-text: unquote('"\\ea37"');
+$icon-text-aling-center: unquote('"\\ea8e"');
+$icon-text-aling-justified: unquote('"\\ea8f"');
+$icon-text-aling-left: unquote('"\\ea90"');
+$icon-text-aling-right: unquote('"\\ea91"');
+$icon-text-paragraph: unquote('"\\ea92"');
+$icon-thermometer: unquote('"\\ea38"');
+$icon-tie: unquote('"\\ea39"');
+$icon-tiktok: unquote('"\\ea3a"');
+$icon-toilet-paper: unquote('"\\ea3b"');
+$icon-toothbrush: unquote('"\\ea3c"');
+$icon-tree-leaf: unquote('"\\ea93"');
+$icon-trello: unquote('"\\ea3d"');
+$icon-triangle-ruler: unquote('"\\ea3e"');
+$icon-twitter: unquote('"\\ea3f"');
+$icon-umbrella: unquote('"\\ea40"');
+$icon-underlined: unquote('"\\ea94"');
+$icon-undo: unquote('"\\ea95"');
+$icon-user: unquote('"\\ea41"');
+$icon-vector-edit: unquote('"\\ea42"');
+$icon-video: unquote('"\\ea43"');
+$icon-virus: unquote('"\\ea44"');
+$icon-volume: unquote('"\\ea45"');
+$icon-volume-down: unquote('"\\ea46"');
+$icon-volume-mute: unquote('"\\ea47"');
+$icon-volume-up: unquote('"\\ea48"');
+$icon-wallet: unquote('"\\ea49"');
+$icon-weight: unquote('"\\ea4a"');
+$icon-whistle: unquote('"\\ea4b"');
+$icon-wifi: unquote('"\\ea4c"');
+$icon-windows: unquote('"\\ea4d"');
+$icon-wine-glass: unquote('"\\ea4e"');
+$icon-wordpress: unquote('"\\ea5f"');
+$icon-xd: unquote('"\\ea60"');
+$icon-youtube: unquote('"\\ea4f"');
+$icon-zoom-in: unquote('"\\ea50"');
+$icon-zoom-out: unquote('"\\ea51"');

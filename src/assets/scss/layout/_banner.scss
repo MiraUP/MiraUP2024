@@ -1,11 +1,13 @@
 .banner {
-
   &-infinity {
     overflow: hidden;
     position: relative;
     z-index: 1;
     height: px(550);
     background: var(--bs-black);
+    @include nav-fixed {
+      margin-top: px(87);
+    }
 
     @include media-breakpoint-down(xl) {
       height: px(450);
@@ -43,7 +45,6 @@
       }
 
       @include media-breakpoint-down(md) {
-
         span {
           display: none;
         }
@@ -57,8 +58,12 @@
     .marquee {
       height: px(1500);
       width: px(1500);
-      opacity: .3;
-      @include prefix(transform, rotate(-30deg) translateX(180px) translateY(-650px), moz webkit ms o);
+      opacity: 0.3;
+      @include prefix(
+        transform,
+        rotate(-30deg) translateX(180px) translateY(-650px),
+        moz webkit ms o
+      );
     }
   }
 }

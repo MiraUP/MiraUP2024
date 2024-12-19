@@ -64,7 +64,7 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
             autoComplete="username"
             icon="user"
             iconSize={1.5}
-            height="47.5"
+            height="49"
             {...username}
           />
           <InputField
@@ -74,7 +74,7 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
             autoComplete="password"
             icon="lock"
             iconSize={1.5}
-            height="47.5"
+            height="49"
             {...password}
           />
 
@@ -94,6 +94,7 @@ const PageLoginLogin = ({ LoginCreate, SetLoginCreate }) => {
           type={loading ? '' : 'submit'}
           disabled={loading ? true : false}
           className="w-100 text-white btn-submit"
+          style={loading ? { padding: '32px 10px' } : {}}
         >
           {loading ? (
             <>

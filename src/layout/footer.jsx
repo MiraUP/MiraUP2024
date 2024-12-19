@@ -6,7 +6,7 @@ import Icon from '../components/icon';
 const Footer = ({ ...props }) => {
   return (
     <footer className="container" {...props}>
-      <div className="row footer">
+      <div className="row footer" style={{ padding: '20px 0' }}>
         <div className="col-md-4 col-12 text-center align-self-center">
           <Typography Component="p">Todos os direitos reservados</Typography>
         </div>

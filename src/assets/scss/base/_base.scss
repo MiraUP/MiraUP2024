@@ -1,21 +1,21 @@
 html {
-  background-color: var(--bs-black);
+  background-color: var(--black);
 
   body {
     background: none !important;
     overflow-x: hidden;
-
-    &.nav-fixed {
-      padding-top: px(87);
-    }
   }
 }
 
 ::selection {
-  color: var(--bs-white);
-  background-color: rgba($violet, .8);
+  color: var(--white);
+  background-color: rgba($violet-300, 0.5);
 }
 
 .page-anima {
   @include anima-fade-left;
+}
+
+.page-content {
+  @include anima-basic;
 }

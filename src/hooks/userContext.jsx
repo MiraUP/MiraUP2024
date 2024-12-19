@@ -11,6 +11,10 @@ export const UserStorage = ({ children }) => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [token, setToken] = useLocalStorage('token', '');
+
+  const [searchFocused, setSearchFocused] = React.useState(false);
+  const [asideMenu, setAsideMenu] = React.useState(true);
+
   const navigate = useNavigate();
 
   const userLogout = React.useCallback(
@@ -31,7 +35,6 @@ export const UserStorage = ({ children }) => {
     const json = await response.json();
     setData(json);
     setLogin(true);
-    console.log(json);
   }
 
   async function userLogin(username, password) {
@@ -69,6 +72,8 @@ export const UserStorage = ({ children }) => {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false);
       }
     }
     autoLogin();
@@ -76,7 +81,18 @@ export const UserStorage = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ userLogin, userLogout, data, error, loading, login }}
+      value={{
+        userLogin,
+        userLogout,
+        data,
+        error,
+        loading,
+        login,
+        searchFocused,
+        setSearchFocused,
+        asideMenu,
+        setAsideMenu,
+      }}
     >
       {children}
     </UserContext.Provider>

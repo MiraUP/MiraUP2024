@@ -28,6 +28,7 @@
 @import 'components/_form.scss';
 @import 'components/_tooltip.scss';
 @import 'components/_stepper.scss';
+@import 'components/_swipper.scss';
 
 /**** Layout ****/
 @import './layout/_nav';
@@ -36,6 +37,8 @@
 @import './layout/_search';
 @import './layout/_galleryBar';
 @import './layout/_footer';
+@import './layout/_dashboard';
 
 /**** Pages ****/
 @import './pages/_login';
+@import './pages/_favorites';

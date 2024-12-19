@@ -10,6 +10,13 @@
     cursor: pointer;
   }
 
+  &.icon-right {
+    .input-field-icon {
+      padding-right: 0 !important;
+      padding-left: px(25);
+    }
+  }
+
   .input {
     display: flex;
     position: relative;
@@ -83,6 +90,7 @@
     position: absolute;
     left: calc(px(25) + 25px);
     opacity: 0.8;
+    transform-origin: top left;
     @include prefix(
       transform,
       translateY(initial) translateY(initial) scale(initial),
@@ -107,6 +115,26 @@
       }
       &::before {
         background-image: var(--gradient-red-right);
+      }
+    }
+  }
+
+  &-simple {
+    .input-field-label,
+    .icon {
+      opacity: 0.3;
+    }
+
+    label {
+      &:after,
+      &::before {
+        height: px(1) !important;
+      }
+
+      &::before {
+        background-color: var(--white);
+        background-image: none !important;
+        opacity: 0.2 !important;
       }
     }
   }

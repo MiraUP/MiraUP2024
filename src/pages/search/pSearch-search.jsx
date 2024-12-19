@@ -3,6 +3,7 @@ import Icon from '../../components/icon';
 import OffcanvasSearch from './pSearch-offcanvasSearch';
 import Tooltip from '../../components/tooltip';
 import { left } from '@popperjs/core';
+import { UserContext } from '../../hooks/userContext';
 
 const CategoryNav = [
   {
@@ -34,15 +35,24 @@ const CategoryNav = [
 
 const Search = () => {
   const [inputSearch, setInputSearch] = React.useState('');
+  const { searchFocused, setSearchFocused } = React.useContext(UserContext);
 
   const handleChange = (e) => {
     setInputSearch(e.target.value);
   };
 
+  searchFocused === true && window.scrollTo({ top: 539, behavior: 'smooth' });
+
   return (
     <>
       <OffcanvasSearch Categorys={CategoryNav} />
-      <section className="container search-main">
+      <section
+        className={
+          searchFocused === true
+            ? 'container search-main focused'
+            : 'container search-main'
+        }
+      >
         <div className="row">
           <div className="col">
             <div className="anima-fade-right search-main-box">
@@ -51,7 +61,7 @@ const Search = () => {
                 role="group"
                 aria-label="Filtro de pesquisa"
               >
-                <button type="button" className="btn btn-link">
+                <button type="button" className="btn">
                   <input
                     type="radio"
                     className="btn-check btn-category-all"
@@ -74,7 +84,7 @@ const Search = () => {
 
                 <div className="scrollMobile-h">
                   {CategoryNav.map(({ short, name }) => (
-                    <button type="button" className="btn btn-link" key={short}>
+                    <button type="button" className="btn" key={short}>
                       <input
                         type="radio"
                         className={'btn-check btn-category-' + short}
@@ -129,6 +139,8 @@ const Search = () => {
                         placeholder="Pesquisar"
                         value={inputSearch}
                         onChange={handleChange}
+                        onFocus={() => setSearchFocused(true)}
+                        onBlur={() => setSearchFocused(false)}
                       />
                       <label htmlFor="search-main">Pesquisar</label>
                     </span>

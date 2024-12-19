@@ -103,7 +103,6 @@ const Button = ({
               'content d-flex align-items-center justify-content-center gap-2' +
               Size
             }
-            style={{ minHeight: '104px' }}
             {...props}
           >
             {IconPositionLeft}
@@ -119,7 +118,6 @@ const Button = ({
         >
           <span
             className="content d-flex align-items-center justify-content-center gap-2"
-            style={{ minHeight: '104px' }}
             {...props}
           >
             {IconPositionLeft}
@@ -138,7 +136,6 @@ const Button = ({
         >
           <span
             className="content d-flex align-items-center justify-content-center gap-2"
-            style={{ minHeight: '104px' }}
             {...props}
           >
             {IconPositionLeft}

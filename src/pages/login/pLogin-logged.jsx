@@ -2,9 +2,9 @@ import React from 'react';
 import Button from '../../components/button';
 import Typography from '../../components/typography';
 import Smilles from '../../components/smilles';
-import { UserContext } from '../../hooks/userContext';
 import { Link } from 'react-router-dom';
 import Icons from '../../components/icon';
+import { UserContext } from '../../hooks/userContext';
 
 const PageLoginLogged = () => {
   const { data, userLogout } = React.useContext(UserContext);

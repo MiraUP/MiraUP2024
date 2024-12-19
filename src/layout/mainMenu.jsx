@@ -1,13 +1,14 @@
 import React from 'react';
 import Typography from '../components/typography';
-import Footer from './footer';
-import ItemsMainMenu from './itemsMainMenu';
+import { ItemsMainMenu, ItemsMainMenuMobile } from './itemsMainMenu';
 
-const MenuPrimary = () => {
+const MenuPrimary = ({ page }) => {
+  page != undefined ? (page = page + ' ') : (page = '');
+
   return (
     <nav
       id="mainMenu"
-      className="modal fade"
+      className={page + 'modal fade'}
       aria-labelledby="mainMenuLabel"
       data-bs-backdrop="static"
       aria-modal="true"
@@ -38,13 +39,14 @@ const MenuPrimary = () => {
                 </div>
               </div>
             </header>
-
-            <div className="row navegation">
-              <ItemsMainMenu />
-              <ItemsMainMenu Mobile />
+          </div>
+          <div className="navegation">
+            <div className="container">
+              <div className="row">
+                <ItemsMainMenu />
+                <ItemsMainMenuMobile />
+              </div>
             </div>
-
-            <Footer />
           </div>
         </div>
       </div>

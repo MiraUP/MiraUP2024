@@ -1,0 +1,68 @@
+.swiper {
+  margin: 0 px(20) !important;
+  padding: 0 px(50) !important;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: px(40);
+    background: var(--black);
+    z-index: 1;
+  }
+
+  &-slide {
+    text-align: center;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: px(1);
+      background: var(--white);
+      opacity: 0.2;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    a {
+      opacity: 0.4;
+      width: 100%;
+      display: block;
+      @include anima-basic;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-button-prev {
+    margin-left: px(-10);
+    &::after {
+      font-family: '#{$icomoon-font-family}' !important;
+      content: $icon-arrow-left-simple !important;
+      color: var(--white);
+    }
+  }
+  &-button-next {
+    margin-left: px(-10);
+    z-index: 2;
+
+    &::after {
+      font-family: '#{$icomoon-font-family}' !important;
+      content: $icon-arrow-right-simple !important;
+      color: var(--white);
+    }
+  }
+}
