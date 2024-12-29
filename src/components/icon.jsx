@@ -52,7 +52,7 @@ const Icons = ({
     Icon = (
       <lord-icon
         trigger={Trigger}
-        src={'src/assets/img/icon/animation/' + IconName + '.json'}
+        src={'/src/assets/img/icon/animation/' + IconName + '.json'}
         colors={Color}
         stroke={Stroke}
         class={className}

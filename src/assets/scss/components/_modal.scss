@@ -1,0 +1,46 @@
+.modal {
+  &-content {
+    background: var(--black);
+    border: 1px solid var(--black-600);
+    @include shadow-basic(50px, bottom);
+  }
+
+  &-title {
+    font-size: px(18);
+    font-weight: 600 !important;
+  }
+
+  &-header {
+    .btn-close {
+      color: var(--white);
+
+      &::before {
+        display: none !important;
+      }
+    }
+    border-bottom-color: var(--black-600);
+  }
+
+  .hr {
+    border-top-color: var(--black-600) !important;
+    opacity: 1;
+    margin: px(30) px(-16);
+  }
+
+  .preview-icon {
+    .col-10 {
+      text-align: center;
+      padding-bottom: px(10);
+    }
+
+    .icon {
+      width: inherit !important;
+      left: 50%;
+      @include prefix(transform, translateX(-50%), moz webkit ms o);
+
+      &::after {
+        background: var(--black) !important;
+      }
+    }
+  }
+}

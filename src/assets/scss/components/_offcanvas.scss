@@ -1,20 +1,44 @@
 .offcanvas {
-  background: var(--bs-black)  !important;
+  background: var(--bs-black) !important;
   padding: px(30);
   border: none !important;
   @include shadow-basic(64px, left);
 
+  &-start {
+    @include shadow-basic(64px, right);
+  }
+
   &-header {
     justify-content: space-between;
 
-    .button-close .content .icon {
+    .button-close .content .icon,
+    .btn-close {
       color: var(--bs-white);
       font-size: px(27) !important;
+    }
+
+    .btn-close {
+      box-shadow: none;
+      opacity: 1;
+
+      &::after {
+        font-family: $icomoon-font-family;
+        content: $icon-close;
+        display: block;
+        line-height: 0;
+        @include anima-basic;
+      }
+
+      &:hover {
+        &::after {
+          @include anima-rotate-zoom;
+        }
+      }
     }
   }
 
   &-title {
-    color: var(--bs-white)  !important;
+    color: var(--bs-white) !important;
 
     &-icons {
       margin: px(30) 0 px(15) 0;
@@ -22,18 +46,12 @@
       grid-template-columns: auto 1fr auto;
       grid-template-rows: 1fr;
       gap: 0;
-      grid-template-areas: "icon title mark";
+      grid-template-areas: 'icon title mark';
       align-items: center;
     }
   }
 
-  &-backdrop {
-    background: var(--bs-black)  !important;
-    opacity: .25;
-  }
-
   &-body {
-
     .profile {
       margin-top: px(20);
 
@@ -64,7 +82,6 @@
 
   .h4,
   .h5 {
-
     .icon {
       font-size: px(29);
       display: inline-block;
@@ -93,7 +110,7 @@
 
     .list-group-item {
       padding: px(20) 0;
-      border-top: px(2) solid rgba(var(--bs-white), .15);
+      border-top: px(2) solid rgba(var(--bs-white), 0.15);
       border-bottom: none;
 
       &:first-child {
@@ -106,7 +123,6 @@
       }
 
       &.animated-icon {
-
         lord-icon {
           overflow: visible !important;
           padding-right: calc(100% - px(60));
@@ -123,36 +139,46 @@
     }
   }
 
-  .input-text {
-    background: rgba(var(--bs-balck), .1);
+  .input {
+    &-text,
+    &-field {
+      background: rgba(var(--bs-balck), 0.1);
 
-    .form-control {
-      background: none !important;
-      border: none;
-      color: var(--bs-white);
-
-      &:focus {
+      .form-control {
+        background: none !important;
         border: none;
+        color: var(--bs-white);
+
+        &:focus {
+          border: none;
+        }
+
+        &:not(:placeholder-shown) ~ label,
+        &:focus ~ label,
+        &-plaintext ~ label,
+        .form-select ~ label {
+          opacity: 0.3;
+          @include prefix(
+            transform,
+            scale(0.7) translateY(-0.5rem) translateX(0.65rem),
+            moz webkit ms o
+          );
+        }
       }
 
-      &:not(:placeholder-shown)~label,
-      &:focus~label,
-      &-plaintext~label,
-      .form-select~label {
-        opacity: .3;
-        @include prefix(transform, scale(0.7) translateY(-0.5rem) translateX(0.65rem), moz webkit ms o);
+      label {
+        @include fontTitle;
+        //font-size: 1.5rem;
+        color: var(--white-100);
       }
-    }
 
-    label {
-      @include fontTitle;
-      //font-size: 1.5rem;
-      font-weight: 800;
+      input {
+        font-weight: 300;
+      }
     }
   }
 
   .search-form {
-
     .button-search {
       padding: px(6);
 
@@ -164,19 +190,16 @@
   }
 
   .search-favorite {
-
     .switch {
       margin-top: px(30);
       display: grid;
       grid-template-columns: 1fr auto;
       grid-template-rows: 1fr;
       gap: 0 0;
-      grid-template-areas:
-        "title mark";
+      grid-template-areas: 'title mark';
       align-items: center;
 
       .h5 {
-
         .icon {
           font-size: px(29);
           display: inline-block;
@@ -188,7 +211,7 @@
 
   .category-options {
     margin-top: px(30);
-    border-top: solid px(2) rgba(var(--bs-white), .15);
+    border-top: solid px(2) rgba(var(--bs-white), 0.15);
 
     &:first-child {
       border: none;
@@ -200,7 +223,6 @@
   }
 
   .category-file {
-
     &-itens {
       margin-top: px(45);
       gap: px(25) 0;
@@ -209,5 +231,43 @@
         flex: 1 0 16.6%;
       }
     }
+  }
+
+  &-comments {
+    .offcanvas-content {
+      margin-bottom: px(230);
+      overflow-x: auto;
+
+      li {
+        padding: px(30) 0;
+        color: var(--white-100);
+
+        &:not(:first-child) {
+          border-bottom: 1px solid var(--black-600);
+        }
+      }
+
+      .data-user {
+        margin-bottom: px(20);
+
+        b {
+          font-style: italic;
+          font-weight: 400;
+        }
+
+        .icon-bin {
+          cursor: pointer;
+          @include anima-basic;
+
+          &:hover {
+            color: var(--red-700);
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    color: var(--white);
   }
 }

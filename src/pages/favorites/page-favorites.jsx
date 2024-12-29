@@ -1,16 +1,12 @@
 import React from 'react';
-import {
-  Col,
-  Row,
-  Figure,
-  OverlayTrigger,
-  Tooltip,
-  Card,
-} from 'react-bootstrap';
+import { Col, Row, OverlayTrigger, Tooltip, Card } from 'react-bootstrap';
 import { UserContext } from '../../hooks/userContext';
+import HeadConfig from '../../components/headConfig';
 import Footer from '../../layout/footer';
 import Icons from '../../components/icon';
 import { Link } from 'react-router-dom';
+import HeaderFavorites from './header';
+import Categories from './categories';
 
 const Path = 'src/assets/img/banner/';
 const favItems = [
@@ -21,7 +17,7 @@ const favItems = [
     thumbs: Path + '1_1630599912156.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: '#',
+    url: '/ativo',
     favorite: true,
   },
   {
@@ -33,7 +29,7 @@ const favItems = [
     thumbs: Path + 'fitness_pro-preview_1_1620747741392.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: '#',
+    url: '/ativo/icone',
     favorite: true,
   },
   {
@@ -43,7 +39,7 @@ const favItems = [
     thumbs: Path + 'preview_01_1616943936661.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo',
     favorite: true,
   },
   {
@@ -53,7 +49,7 @@ const favItems = [
     thumbs: Path + 'preview_01_1625216203522.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo/icone',
     favorite: true,
   },
   {
@@ -63,7 +59,7 @@ const favItems = [
     thumbs: Path + 'preview-01_1610599939230.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo',
     favorite: true,
   },
   {
@@ -73,7 +69,7 @@ const favItems = [
     thumbs: Path + 'preview-3_1636636114453.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo/icone',
     favorite: true,
   },
   {
@@ -83,7 +79,7 @@ const favItems = [
     thumbs: Path + 'slice-1_1621426038602.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo',
     favorite: true,
   },
   {
@@ -93,7 +89,7 @@ const favItems = [
     thumbs: Path + 'ui8-details-6_1649773709276.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo/icone',
     favorite: true,
   },
   {
@@ -103,7 +99,7 @@ const favItems = [
     thumbs: Path + '1_1630599912156.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo',
     favorite: true,
   },
   {
@@ -113,7 +109,7 @@ const favItems = [
     thumbs: Path + '1_1630599912156.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo/icone',
     favorite: true,
   },
   {
@@ -123,7 +119,7 @@ const favItems = [
     thumbs: Path + '1_1630599912156.png',
     categorie: 'Categoria',
     developer: 'Desenvolvevor',
-    url: 'url/item',
+    url: '/ativo',
     favorite: true,
   },
 ];
@@ -133,6 +129,12 @@ const PageFavorites = () => {
 
   return (
     <>
+      <HeadConfig
+        title="Favoritos"
+        description="Pesquisa e listagem dos seus ativos favoritos."
+      />
+      <HeaderFavorites />
+      <Categories />
       <div className="content">
         <Row className="g-5">
           {favItems.map(

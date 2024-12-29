@@ -28,6 +28,8 @@ const Button = ({
   Ripple,
   RippleColor,
   className,
+  target,
+  download,
   children,
   disabled,
   ...props
@@ -97,6 +99,8 @@ const Button = ({
           className={'btn-ripple btn' + StyleBTN + ' ' + className}
           onClick={createRipple}
           to={href}
+          target={target}
+          download={download}
         >
           <span
             className={
@@ -133,6 +137,8 @@ const Button = ({
           to={href}
           className={'btn-ripple btn' + StyleBTN + Size + ' ' + className}
           onClick={createRipple}
+          target={target}
+          download={download}
         >
           <span
             className="content d-flex align-items-center justify-content-center gap-2"

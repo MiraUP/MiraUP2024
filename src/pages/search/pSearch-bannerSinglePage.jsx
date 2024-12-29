@@ -17,7 +17,7 @@ const ImgsBanner = [
 
 const BannerSinglePage = () => {
   return (
-    <section className="container anima-fade-left banner-infinity">
+    <section className="container anima-fade-left banner-infinity first-content">
       <div className="row">
         <div className="col">
           <Typography

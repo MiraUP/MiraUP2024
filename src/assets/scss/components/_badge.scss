@@ -1,0 +1,7 @@
+.badge {
+  font-size: small;
+
+  &.rounded-pill {
+    border-radius: 100px !important;
+  }
+}

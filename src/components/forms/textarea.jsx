@@ -10,6 +10,7 @@ const Textarea = ({
   className,
   placeholder,
   Icon,
+  ...props
 }) => {
   id === undefined ? (id = '') : (id = id);
   row === undefined ? (row = '5') : (row = row);
@@ -20,9 +21,12 @@ const Textarea = ({
     : (Icon = <Icons IconName={Icon} style={{ marginRight: '5px' }} />);
 
   return (
-    <span className={'form-floating ' + className}>
+    <span
+      className={'form-floating form-floating-textarea ' + className}
+      {...props}
+    >
       <textarea
-        className="form-control"
+        className="form-control scrollbar-simple"
         id={id}
         value={value}
         rows={row}

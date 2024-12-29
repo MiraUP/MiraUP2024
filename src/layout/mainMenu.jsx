@@ -35,7 +35,7 @@ const MenuPrimary = ({ page }) => {
               </div>
               <div className="row justify-content-md-center">
                 <div className="col col-md-8">
-                  <i className="hr-rectangle hr-_primary"></i>
+                  <hr className="hr-rectangle hr-_primary" />
                 </div>
               </div>
             </header>

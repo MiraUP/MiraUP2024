@@ -29,6 +29,10 @@
 @import 'components/_tooltip.scss';
 @import 'components/_stepper.scss';
 @import 'components/_swipper.scss';
+@import 'components/_badge.scss';
+@import 'components/_toast.scss';
+@import 'components/_modal.scss';
+@import 'components/_tag.scss';
 
 /**** Layout ****/
 @import './layout/_nav';
@@ -42,3 +46,5 @@
 /**** Pages ****/
 @import './pages/_login';
 @import './pages/_favorites';
+@import './pages/_notifications';
+@import './pages/_single-items';

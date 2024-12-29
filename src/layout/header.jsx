@@ -19,19 +19,20 @@ const Header = ({ noMenu, ...props }) => {
     return () => window.removeEventListener('scroll', stickNavbar);
   }, []);
 
-  const stickNavbar = () => {
-    if (window !== undefined) {
-      let windowHeight = window.scrollY;
-      // window height changed for the demo
-      if (windowHeight > 1) {
-        document.body.classList.add('nav-fixed');
-        setStickyMenu(true);
-      } else {
-        document.body.classList.remove('nav-fixed');
-        setStickyMenu(false);
-      }
+  if (window.scrollY > 1) {
+    document.body.classList.add('nav-fixed');
+  }
+
+  function stickNavbar() {
+    let windowHeight = window.scrollY;
+    if (windowHeight > 1) {
+      setStickyMenu(true);
+      document.body.classList.add('nav-fixed');
+    } else {
+      setStickyMenu(false);
+      document.body.classList.remove('nav-fixed');
     }
-  };
+  }
 
   return (
     <>
@@ -57,18 +58,12 @@ const Header = ({ noMenu, ...props }) => {
                   to="/"
                   className="d-sm-block d-none btn-backHome align-self-center"
                 >
-                  <Tooltip
-                    Title="Voltar para a página inicial"
-                    Placement="bottom"
-                    Offset="0, 10"
-                  >
-                    <Icon
-                      IconName="home"
-                      Animate
-                      Trigger="hover"
-                      style={{ width: '40px', height: '40px' }}
-                    />
-                  </Tooltip>
+                  <Icon
+                    IconName="home"
+                    Animate
+                    Trigger="hover"
+                    style={{ width: '40px', height: '40px' }}
+                  />
                 </Link>
               )}
               <button
@@ -97,15 +92,13 @@ const Header = ({ noMenu, ...props }) => {
                     data-bs-offset="13,20"
                     aria-expanded="false"
                   >
-                    <Tooltip Title="Notificações" Offset="0, 5">
-                      <Icon
-                        IconName="bell-notification"
-                        Animate
-                        Stroke={130}
-                        Trigger="hover"
-                        style={{ width: '40px', height: '40px' }}
-                      />
-                    </Tooltip>
+                    <Icon
+                      IconName="bell-notification"
+                      Animate
+                      Stroke={130}
+                      Trigger="hover"
+                      style={{ width: '40px', height: '40px' }}
+                    />
                   </button>
 
                   <DropdownNotification />

@@ -3,6 +3,7 @@ import Typography from '../../components/typography';
 import Icon from '../../components/icon';
 import Tooltip from '../../components/tooltip';
 import { UserContext } from '../../hooks/userContext';
+import { Link } from 'react-router-dom';
 
 const galleryItem = [
   {
@@ -15,7 +16,7 @@ const galleryItem = [
         developerName: 'Desenvolvedor 02',
       },
     ],
-    link: '#linkItem',
+    link: '/ativo',
     download: '#linkDownload',
     favorite: true,
     thumbnail:
@@ -30,7 +31,42 @@ const galleryItem = [
       { fileName: 'Cinema 4D', fileShort: 'cinema4d' },
       { fileName: 'Sketch', fileShort: 'sketch' },
       { fileName: 'Blender', fileShort: 'blender' },
-      { fileName: 'MP4', fileShort: 'mp4' },
+      { fileName: 'MP4', fileShort: 'movie' },
+      { fileName: 'CSS 3', fileShort: 'css3' },
+      { fileName: 'HTML 5', fileShort: 'html5' },
+      { fileName: 'SASS', fileShort: 'sass' },
+      { fileName: 'Font Type', fileShort: 'font' },
+      { fileName: 'Fonte', fileShort: 'font' },
+      { fileName: 'PDF', fileShort: 'pdf' },
+      { fileName: 'SVG', fileShort: 'svg' },
+    ],
+  },
+  {
+    name: 'Ativo de Ícone',
+    developer: [
+      {
+        developerName: 'Desenvolvedor 01',
+      },
+      {
+        developerName: 'Desenvolvedor 02',
+      },
+    ],
+    link: '/ativo/icone',
+    download: '#linkDownload',
+    favorite: true,
+    thumbnail:
+      'http://localhost/biblioteca_miraup/wp-content/uploads/2023/11/detail-image-7_1640612824149.jpg',
+    fileType: [
+      { fileName: 'Adobe Photoshop', fileShort: 'ps' },
+      { fileName: 'Adobe Illustrator', fileShort: 'ai' },
+      { fileName: 'Adobe Indesign', fileShort: 'indd' },
+      { fileName: 'Adobe XD', fileShort: 'xd' },
+      { fileName: 'Photoshop', fileShort: 'ps' },
+      { fileName: 'Figma', fileShort: 'figma' },
+      { fileName: 'Cinema 4D', fileShort: 'cinema4d' },
+      { fileName: 'Sketch', fileShort: 'sketch' },
+      { fileName: 'Blender', fileShort: 'blender' },
+      { fileName: 'MP4', fileShort: 'movie' },
       { fileName: 'CSS 3', fileShort: 'css3' },
       { fileName: 'HTML 5', fileShort: 'html5' },
       { fileName: 'SASS', fileShort: 'sass' },
@@ -113,7 +149,7 @@ const GaleryMain = () => {
                   ))}
                 </ul>
 
-                <a href={link}>
+                <Link to={link}>
                   <figure>
                     <img
                       src={thumbnail}
@@ -134,7 +170,7 @@ const GaleryMain = () => {
                       ))}
                     </Typography>
                   </div>
-                </a>
+                </Link>
               </section>
             ),
           )}

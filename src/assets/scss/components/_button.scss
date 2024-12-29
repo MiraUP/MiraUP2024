@@ -46,10 +46,10 @@
       position: absolute;
 
       &:checked + label {
-        color: var(--bs-red);
+        color: var(--red);
 
         &::before {
-          content: '\e9a6';
+          content: $icon-heart-filled;
         }
       }
     }
@@ -62,11 +62,61 @@
       cursor: pointer;
 
       &::before {
-        content: '\e9a5';
+        content: $icon-heart;
       }
 
       &:hover {
         @include anima-heart;
+      }
+    }
+
+    &-white {
+      input[type='checkbox'] {
+        &:checked + label {
+          color: var(--white);
+        }
+      }
+      label {
+        &:hover {
+          @include anima-heart-white;
+        }
+      }
+    }
+  }
+
+  &-bookmark {
+    position: relative;
+    padding: 0;
+    overflow: visible !important;
+
+    .content {
+      padding: 0 !important;
+    }
+
+    input[type='checkbox'] {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+
+      &:checked + label {
+        color: var(--white);
+
+        &::before {
+          content: $icon-bookmark-filled;
+        }
+      }
+    }
+
+    label {
+      display: block;
+      @include fontIcon;
+      color: var(--white);
+      font-size: px(32);
+      cursor: pointer;
+
+      &::before {
+        content: $icon-bookmark;
       }
     }
 
@@ -105,6 +155,26 @@
   flex-wrap: nowrap;
   justify-content: center;
   gap: px(5);
+
+  &-close {
+    @include anima-basic;
+    opacity: 0.8;
+    box-shadow: none !important;
+    font-size: px(30);
+
+    &::after {
+      content: $icon-close;
+      display: block;
+      font-family: $icomoon-font-family;
+      line-height: 0;
+      font-size: inherit;
+    }
+
+    &:hover {
+      opacity: 1;
+      @include anima-rotate-zoom;
+    }
+  }
 
   .content {
     display: inline-flex;

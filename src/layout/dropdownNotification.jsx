@@ -117,7 +117,7 @@ const DropdownNotification = () => {
         ))}
       </ul>
       <div className="footerNotifications">
-        <Button Component="a" href="#" StyleBTN="secondary">
+        <Button href="/notificacoes" StyleBTN="secondary">
           Ver todas notificações
         </Button>
       </div>

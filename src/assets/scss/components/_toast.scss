@@ -1,0 +1,43 @@
+.toast {
+  border-radius: px(7);
+  border: px(1) solid;
+  font-size: px(13);
+
+  &-header {
+    background: none;
+    border-bottom: px(1) solid;
+    font-size: inherit !important;
+    align-items: flex-start;
+
+    .icon,
+    strong,
+    small,
+    .btn-close {
+      color: inherit !important;
+      font-size: inherit !important;
+    }
+
+    .btn-close {
+      &::after {
+        content: $icon-close;
+        display: block;
+        font-family: $icomoon-font-family;
+      }
+    }
+  }
+
+  &-body {
+    font-size: inherit !important;
+  }
+
+  &.bg-dark {
+    background: var(--black) !important;
+    border-color: var(--black-600);
+    color: var(--white-300) !important;
+
+    .toast-header {
+      border-color: var(--black-600);
+      color: var(--white-300) !important;
+    }
+  }
+}

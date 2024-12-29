@@ -6,38 +6,42 @@ import Header from '../layout/header';
 import { AsideDashboard } from '../layout/aside';
 import MainMenu from '../layout/mainMenu';
 import PageFavorites from '../pages/favorites/page-favorites';
-import HeaderDashboard from '../pages/favorites/header';
-import CategoriesFavorites from '../pages/favorites/categories';
 import PageNotifications from '../pages/notifications/page-notifications';
+import PageProfile from '../pages/profile/page-profile';
+import PageAccount from '../pages/account/page-account';
 
 const InternalPage = () => {
-  const { pathname } = useLocation();
-  let PageName;
-  pathname === '/favoritos'
-    ? (PageName = 'favorites')
-    : pathname === '/notificacoes'
-    ? (PageName = 'notifications')
-    : (PageName = '');
+  const url = useLocation();
+  //const [searchParams] = useSearchParams();
 
+  let PageName;
+  url.pathname === '/favoritos'
+    ? (PageName = 'favorites')
+    : url.pathname === '/notificacoes'
+    ? (PageName = 'notifications')
+    : url.pathname === '/conta'
+    ? (PageName = 'account')
+    : url.pathname === '/perfil'
+    ? (PageName = 'profile')
+    : (PageName = '');
   return (
     <>
       <LogoutURL />
-      <Container fluid className={`page-${PageName}`}>
+      <Container fluid className={`page-${PageName} dashboard-page page-anima`}>
         <Row className="dashboard">
           <Header noMenu />
           <AsideDashboard />
           <Col as="section" className="dashboard-content page-anima">
-            <HeaderDashboard />
-            {pathname === '/favoritos' && (
-              <>
-                <CategoriesFavorites />
-                <PageFavorites />
-              </>
-            )}
-            {pathname === '/notificacoes' && (
-              <>
-                <PageNotifications />
-              </>
+            {url.pathname === '/favoritos' ? (
+              <PageFavorites />
+            ) : url.pathname === '/notificacoes' ? (
+              <PageNotifications />
+            ) : url.pathname === '/conta' ? (
+              <PageAccount />
+            ) : url.pathname === '/perfil' ? (
+              <PageProfile />
+            ) : (
+              ''
             )}
           </Col>
         </Row>

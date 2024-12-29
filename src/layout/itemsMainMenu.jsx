@@ -17,7 +17,7 @@ const itensMenu = [
       { name: 'Favoritos', href: '/favoritos', icon: 'heart' },
       { name: 'Notificações', href: '/notificacoes', icon: 'bell' },
       { name: 'Meu perfil', href: '/perfil', icon: 'user' },
-      { name: 'Configurações', href: '/conta', icon: 'config' },
+      { name: 'Configurações', href: '/conta', icon: 'gear' },
       { name: 'Fazer logout', href: '/logout', icon: 'out' },
     ],
   },

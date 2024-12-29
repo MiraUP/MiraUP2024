@@ -21,6 +21,14 @@ const App = () => {
             }
           />
           <Route
+            path="/ativo/*"
+            element={
+              <ProtectedRouters>
+                <SinglePage />
+              </ProtectedRouters>
+            }
+          />
+          <Route
             path="/favoritos"
             element={
               <ProtectedRouters>
@@ -29,7 +37,23 @@ const App = () => {
             }
           />
           <Route
-            path="/notificacoes"
+            path="/notificacoes/"
+            element={
+              <ProtectedRouters>
+                <Dashboard />
+              </ProtectedRouters>
+            }
+          />
+          <Route
+            path="/perfil/"
+            element={
+              <ProtectedRouters>
+                <Dashboard />
+              </ProtectedRouters>
+            }
+          />
+          <Route
+            path="/conta/"
             element={
               <ProtectedRouters>
                 <Dashboard />

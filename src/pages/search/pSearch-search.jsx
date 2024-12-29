@@ -121,7 +121,7 @@ const Search = () => {
                   >
                     <span className="content">
                       <Tooltip Title="Ver todas as categorias" Offset="0, 25">
-                        <Icon IconName="more-v" />
+                        <Icon IconName="more" />
                       </Tooltip>
                     </span>
                   </label>

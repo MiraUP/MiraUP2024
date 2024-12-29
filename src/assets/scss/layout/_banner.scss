@@ -5,9 +5,6 @@
     z-index: 1;
     height: px(550);
     background: var(--bs-black);
-    @include nav-fixed {
-      margin-top: px(87);
-    }
 
     @include media-breakpoint-down(xl) {
       height: px(450);

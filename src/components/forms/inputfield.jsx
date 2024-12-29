@@ -16,6 +16,7 @@ const InputField = ({
   icon,
   iconSize,
   iconPosition,
+  iconAnimate,
   height,
   autoComplete,
   props,
@@ -92,9 +93,23 @@ const InputField = ({
       style={style === undefined ? {} : style}
     >
       <label className="input" htmlFor={id}>
-        {icon != undefined && iconPosition != 'right' && (
-          <Icons IconName={icon} Size={iconSize} className="input-field-icon" />
-        )}
+        {icon != undefined &&
+          iconPosition != 'right' &&
+          (iconAnimate != undefined ? (
+            <Icons
+              Animate
+              IconName={icon}
+              Trigger="hover"
+              Style={iconSize}
+              className="input-field-icon"
+            />
+          ) : (
+            <Icons
+              IconName={icon}
+              Size={iconSize}
+              className="input-field-icon"
+            />
+          ))}
         <input
           id={id}
           name={id}
@@ -131,13 +146,22 @@ const InputField = ({
 
         {icon != undefined &&
           iconPosition === 'right' &&
-          type != 'password' && (
+          type != 'password' &&
+          (iconAnimate != undefined ? (
+            <Icons
+              Animate
+              IconName={icon}
+              Trigger="hover"
+              Style={iconSize}
+              className="input-field-icon"
+            />
+          ) : (
             <Icons
               IconName={icon}
               Size={iconSize}
               className="input-field-icon"
             />
-          )}
+          ))}
       </label>
       <span className="">
         {helperText != undefined && <p className="helper-text">{helperText}</p>}

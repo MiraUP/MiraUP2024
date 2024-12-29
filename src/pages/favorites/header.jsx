@@ -4,7 +4,7 @@ import InputField from '../../components/forms/inputfield';
 import Typography from '../../components/typography';
 import Icons from '../../components/icon';
 
-const HeaderDashboard = () => {
+const HeaderFavorites = () => {
   return (
     <>
       <Row as="header" className="dashboard-header">
@@ -55,4 +55,4 @@ const HeaderDashboard = () => {
   );
 };
 
-export default HeaderDashboard;
+export default HeaderFavorites;

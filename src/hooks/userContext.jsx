@@ -14,6 +14,19 @@ export const UserStorage = ({ children }) => {
 
   const [searchFocused, setSearchFocused] = React.useState(false);
   const [asideMenu, setAsideMenu] = React.useState(true);
+  const [toastData, setToastData] = React.useState({
+    position: 'bottom-end',
+    show: false,
+    delay: 5000,
+    autohide: true,
+    className: '',
+    variant: 'dark',
+    icon: '',
+    iconSize: 1,
+    title: 'Informe o titulo em "setToastData(title: "Title")"',
+    time: '',
+    message: 'Informe a mensagem em "setToastData(title: "Text")"',
+  });
 
   const navigate = useNavigate();
 
@@ -92,6 +105,8 @@ export const UserStorage = ({ children }) => {
         setSearchFocused,
         asideMenu,
         setAsideMenu,
+        toastData,
+        setToastData,
       }}
     >
       {children}
